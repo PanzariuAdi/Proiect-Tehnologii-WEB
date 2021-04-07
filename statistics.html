@@ -23,15 +23,75 @@
 
 <body>
     <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
+        <button class="dropbtn">Settings</button>
         <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#">Link 3</a>
+
+          <div class="plotcontainer">
+            <label class="checkcontainer">Doughnut
+                <input type="radio" checked="checked" name=radio>
+                <span class="radiobtn"></span>
+            </label>
+            
+            <label class="checkcontainer">Bar
+                <input type="radio" name=radio>
+                <span class="radiobtn"></span>
+            </label>
+            
+            <label class="checkcontainer">radar
+                <input type="radio" name=radio>
+                <span class="radiobtn"></span>
+            </label>
+            
+            <label class="checkcontainer">Pie
+                <input type="radio" name=radio>
+                <span class="radiobtn"></span>
+          </label>
+          </div>
+
+          <div class="firstCrit">
+            <label class="checkcontainer">Country
+                <input type="radio" checked="checked" name=radio1>
+                <span class="radiobtn"></span>
+            </label>
+            <label class="checkcontainer">Region
+                <input type="radio" name=radio1>
+                <span class="radiobtn"></span>
+            </label>
+            <label class="checkcontainer">Attack Type
+                <input type="radio" name=radio1>
+                <span class="radiobtn"></span>
+            </label>
+          </div>
+
+          <div class="secondCrit">
+            <label class="checkcontainer">Casualities
+                <input type="radio" checked="checked" name=radio2>
+                <span class="radiobtn"></span>
+            </label>
+            
+            <label class="checkcontainer">Succes
+                <input type="radio" name=radio2>
+                <span class="radiobtn"></span>
+            </label>
+            <label class="checkcontainer">Fail
+                <input type="radio" name=radio2>
+                <span class="radiobtn"></span>
+            </label>
+          </div>
+
         </div>
       </div>
-    <div id="container">
+    <div class="container">
             <canvas id="myChart"></canvas>
+    </div>
+    <div class="container">
+        <canvas id="myChart1"></canvas>
+    </div>
+    <div class="container">
+        <canvas id="myChart3"></canvas>
+    </div>
+    <div class="container">
+        <canvas id="myChart4"></canvas>
     </div>
 
 <script src="script.js"></script>

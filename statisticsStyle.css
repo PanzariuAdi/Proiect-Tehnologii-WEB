@@ -5,11 +5,7 @@
     display: inline; 
     margin:auto;
   }  
-  #canvas-container {
-    width: 100%;
-    text-align:center;
-    
- }
+
 
  /* Dropdown Button */
 .dropbtn {
@@ -27,7 +23,9 @@
     position: relative;
     display: inline-block;
     width: 100%;
-    top:0;
+    top:0; 
+    text-align: center;
+    color:black;
   }
   
   /* Dropdown Content (Hidden by Default) */
@@ -40,15 +38,7 @@
     z-index: 1;
     width: 100%;
   }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-  }
+
   
   /* Change color of dropdown links on hover */
   .dropdown-content a:hover {background-color: #ddd; width: 100%;}
@@ -58,3 +48,4 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+ 
