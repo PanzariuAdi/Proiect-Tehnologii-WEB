@@ -11,7 +11,9 @@ body {
     margin: 50px auto;
     background-color: white;
     width: 900px;
-    height: 4000px;
+    height: 85vh;
+    resize: vertical;
+    overflow: auto;
     border: 1px solid black;
     border-radius: 10px;
     padding: 14px;
@@ -109,6 +111,12 @@ nav li a:hover {
     margin: 10px 0px 0px 0px;
     border-radius: 5px;
     padding: 0px;
+    text-align: center;
+}
+
+.main p {
+    padding: 20px;
+    text-align: justify;
 }
 
 .adder {
@@ -119,7 +127,7 @@ nav li a:hover {
     border-radius: 10px;
 }
 
-.adder input[type="text"], input[type="date"], textarea, select {
+.adder input[type="text"], input[type="date"], input[type="number"], input[type="email"], input[type="password"], textarea, select {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
@@ -130,6 +138,10 @@ nav li a:hover {
 .adder label {
     padding: 8px 12px 12px 0px;
     display: inline-block;
+}
+
+.adder h4 {
+    font-weight: 200;
 }
 
 input[type=submit] {
@@ -147,4 +159,14 @@ input[type=submit]:hover{
 
 .active {
     color: crimson;
+}
+
+.tablemain {
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    border: 1px solid #333;
+    border-radius: 5px;
+    text-align: justify;
+    padding: 10px;
 }

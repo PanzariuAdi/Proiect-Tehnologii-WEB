@@ -37,8 +37,8 @@
             <h1>Users and access</h1>
             <div class="leftbox">
                 <ul class="sidemenu">
-                    <li><a href="admin.html" style="color: crimson;">Admin home page</a></li>
-                    <li><a href="admin_manage.html">Manage access</a></li>
+                    <li><a href="admin.html">Admin home page</a></li>
+                    <li><a href="admin_manage.html"  style="color: crimson;">Manage access</a></li>
                 </ul>
             </div>
 
@@ -52,20 +52,23 @@
         </div>
 
         <div class="main">
-            <h1>Thanks for using our site !</h1>
-            <h2>Guide to admin panel</h2>
-            <p>1. Adding to the database.<br>If you want to add a new event to the database, you need to go in "Database" section, in the tab "Add event". After that, complete all the textboxes, but be very carefull, because 
-            when you see "please check ..." it means that you need to search in the "Informations about data" section the right ID for you field.
-            </p>
+            <div class="adder">
+                <form action="">
+                    <label for="selectUser">Select user: </label><select name="userselect" id="">
+                        <option value="1">User 1</option>
+                        <option value="2">User 2</option>
+                    </select><br><br>
 
-            <p>2. Update an event from your database.<br>
-            If you want to update an event from your database, you need to know the exact date
-            of the event.
-            </p>
+                    <label for="email">Email: </label><input type="email" name="email" placeholder="panzariu.adi00@gmail.com"><br><br>
+                    <label for="password">Password: </label><input type="text" name="password" placeholder="hashed password"><br><br>
+                    <label for="rights">Add to database: </label><input type="checkbox" name="add_right"> <br><br>
+                    <label for="rights">Update the database: </label><input type="checkbox" name="update_right"> <br><br>
+                    <label for="rights">Delete from database: </label><input type="checkbox" name="delete_right"> <br><br>
 
-            <p>3. Delete an event from database. <br>
-                You can delete an event by its ID, or by its exact date.
-            </p>
+
+                    <input type="submit" value="Modify user">
+                </form>
+            </div>
         </div>
 
     </div>

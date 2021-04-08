@@ -22,14 +22,14 @@
                 <li><a href="#" style="float:right;">Logout</a></li>
                 <li><a href="admin_myaccount.html" style="float: right;">My account</a></li>
             </ul>
-        </nav> 
+        </nav>
 
         <div class="sidebar">
             <h1>Database</h1>
             <div class="leftbox">
                 <ul class="sidemenu">
-                    <li><a href="admin_add.html" style="color: crimson;">Add event</a></li>
-                    <li><a href="admin_update.html">Update event</a></li>
+                    <li><a href="admin_add.html">Add event</a></li>
+                    <li><a href="admin_update.html" style="color: crimson;">Update event</a></li>
                     <li><a href="admin_delete.html">Delete event</a></li>    
                 </ul>
             </div>
@@ -55,12 +55,13 @@
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
                 <form action="">
-                    <label for="year">Year: </label><input type="text" id="year" name="year" placeholder="Example : 1970"><br><br>
-                    <label for="month">Month: </label><input type="text" id="year" name="year" placeholder="Example : 5"><br><br>
-                    <label for="date">Day: </label><input type="text" id="year" name="year" placeholder="Example : 10"><br><br>
+                    <label for="chooseEvent">Choose event : </label><input type="number" name="chooser" id="">
+                    <label for="year">Year: </label><input type="text" id="year" name="year" ><br><br>
+                    <label for="month">Month: </label><input type="text" id="year" name="year"><br><br>
+                    <label for="date">Day: </label><input type="text" id="year" name="year"><br><br>
                     <label for="extended">Extended: </label><input type="checkbox" name="extended" id="extended"><br><br>
-                    <label for="countryID"><a href="countries.html" target="_blank">Country ID</a> </label><input type="text" name="countryID" id="countryID" placeholder="Please check list of countries IDs"><br><br>
-                    <label for="country">Country: </label><input type="text" name="country" id="country" placeholder="Example: Romania"><br><br>
+                    <label for="countryID"><a href="countries.html" target="_blank">Country ID</a> </label><input type="text" name="countryID" id="countryID"><br><br>
+                    <label for="country">Country: </label><input type="text" name="country" id="country"><br><br>
                     <label for="regionID">Region</label><select name="region" id="region">
                         <option value="1">North America</option>
                         <option value="2">Central America & Caribbean</option>
@@ -123,10 +124,10 @@
                         <option value="22">Violent political party</option>
                     </select><br><br>
 
-                    <label for="targsubtype"><a href="#">Targ subtypes</a></label><input type="text" name="targsubtype" id="targsubtype" placeholder="Enter here the ID"><br><br>
+                    <label for="targsubtype"><a href="#">Targ subtypes</a></label><input type="text" name="targsubtype" id="targsubtype" ><br><br>
                     <label for="corp">Corp: </label><input type="text" name="corp" id="corp"><br><br>
                     <label for="target">Target: </label><input type="text" name="target" id="target"><br><br>
-                    <label for="nationality"><a href="#">Nationality:</a></label><input type="text" name="nationality" id="nationality" placeholder="Example : Romanian"><br><br>
+                    <label for="nationality"><a href="#">Nationality:</a></label><input type="text" name="nationality" id="nationality" ><br><br>
                     <label for="gname">Organisation name: </label><input type="text" name="gname" id="gname"><br><br>
                     <label for="motive">Motive: </label><input type="text" name="motive" id="motive"><br><br>
                     <label for="claimed">Claimed: </label><input type="checkbox" name="claimed" id="claimed"><br><br>
@@ -159,7 +160,7 @@
                         <option value="3">Minor (likely < $1 million)</option>
                         <option value="4">Unknown</option>
                     </select><br><br>
-                    <input type="submit" value="Add event to database">
+                    <input type="submit" value="Update event">
                 </form>
             </div>
         </div>
