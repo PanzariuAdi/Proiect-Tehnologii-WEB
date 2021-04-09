@@ -10,7 +10,8 @@ body {
 .mainframe {
     margin: 50px auto;
     background-color: white;
-    width: 900px;
+    /* width: 900px; */
+    width: 60%;
     height: 85vh;
     resize: vertical;
     overflow: auto;
@@ -162,9 +163,10 @@ input[type=submit]:hover{
 }
 
 .tablemain {
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    width: 80%;
+    width: 100%;
     border: 1px solid #333;
     border-radius: 5px;
     text-align: justify;
