@@ -170,3 +170,7 @@ input[type=submit]:hover{
     text-align: justify;
     padding: 10px;
 }
+
+.full {
+    width: 100%;
+}

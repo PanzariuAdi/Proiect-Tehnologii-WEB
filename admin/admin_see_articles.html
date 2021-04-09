@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#" style="float:right;">Logout</a></li>
-                <li><a href="#" style="float: right; background-color: #111;">My account</a></li>
+                <li><a href="admin_myaccount.html" style="float: right;">My account</a></li>
             </ul>
         </nav>
 
@@ -57,21 +57,45 @@
                     <li><a href="admin_add_article.html">Add article</a></li>
                     <li><a href="admin_update_article.html">Update article</a></li>
                     <li><a href="admin_delete_article.html">Delete article</a></li>
-                    <li><a href="admin_see_articles.html">See all articles</a></li>
+                    <li><a href="admin_see_articles.html" style="color: crimson;">See all articles</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="main">
             <div class="adder">
-                <h4>Panzariu Ionut - Adrian</h4>
-                <h4>panzariu.adi00@gmail.com</h4>
-                <h4>0735266148</h4>
-                <form action="">
-                    <label for="changePassword">Current password</label> <input type="password" name="password" id=""><br><br>
-                    <label for="changePassword">New password</label> <input type="password" name="newpassword" id=""><br><br>
-                    <input type="submit" value="Change password">
-                </form>
+                <select name="order" id="">
+                    <option value="1">Order by ID</option>
+                    <option value="2">Order by date</option>                  
+                    <option value="3">Order alphabetical</option>
+                    
+                </select><br><br>
+
+                <select name="" id="">
+                    <option value="1">See all articles</option>
+                    <option value="2">See one article on ID</option>
+                </select><br><br>
+
+                <table class="tablemain full">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Date</th>
+                    </tr>
+
+                    <tr>
+                        <td>0</td>
+                        <td>Afghanistan</td>
+                        <td>01.01.2021</td>
+                    </tr>
+
+                </table>
+
+                <div>
+                    <h3>Title</h3>
+                    <h4>Date</h4>
+                    <h4>Description</h4>
+                </div>
             </div>
         </div>
 

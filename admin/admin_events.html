@@ -20,7 +20,7 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#" style="float:right;">Logout</a></li>
-                <li><a href="#" style="float: right; background-color: #111;">My account</a></li>
+                <li><a href="admin_myaccount.html" style="float: right;">My account</a></li>
             </ul>
         </nav>
 
@@ -31,7 +31,7 @@
                     <li><a href="admin_add.html">Add event</a></li>
                     <li><a href="admin_update.html  ">Update event</a></li>
                     <li><a href="admin_delete.html">Delete event</a></li>    
-                    <li><a href="admin_events.html">See events</a></li>
+                    <li><a href="admin_events.html" style="color: crimson;">See events</a></li>
                 </ul>
             </div>
 
@@ -64,14 +64,41 @@
 
         <div class="main">
             <div class="adder">
-                <h4>Panzariu Ionut - Adrian</h4>
-                <h4>panzariu.adi00@gmail.com</h4>
-                <h4>0735266148</h4>
-                <form action="">
-                    <label for="changePassword">Current password</label> <input type="password" name="password" id=""><br><br>
-                    <label for="changePassword">New password</label> <input type="password" name="newpassword" id=""><br><br>
-                    <input type="submit" value="Change password">
-                </form>
+                <select name="order" id="">
+                    <option value="1">Order by ID</option>
+                    <option value="2">Order by date</option>                  
+                    <option value="3">Order by location</option>
+                    
+                </select><br><br>
+
+                <select name="" id="">
+                    <option value="1">See all events</option>
+                    <option value="2">See one event by ID</option>
+                </select><br><br>
+
+                <table class="tablemain full">
+                    <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Attack type</th>
+                    </tr>
+
+                    <tr>
+                        <td>197000000001</td>
+                        <td>1970/07/02</td>
+                        <td>Dominican Republic</td>
+                        <td>Assassination</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>197000000002</td>
+                        <td>1970/10/10</td>
+                        <td>Mexico</td>
+                        <td>Hostage taking</td>
+                    </tr>
+
+                </table>
             </div>
         </div>
 
