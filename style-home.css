@@ -35,6 +35,9 @@ header li a:hover {
   background-color: #111;
 }
 
+#search-button:hover{
+  background-color: grey;
+}
 header li input{
   text-decoration: none;
   padding: 14px 16px;
@@ -82,17 +85,24 @@ header li input{
   grid-area: sidebar;
   display: grid;
   grid-template-columns: 1fr;
-  position: relative;
+  grid-template-rows: 1fr 2fr;
+  
   height: 500px;
   width: 100%;
 }
 .side-text{
   text-align: center;
 }
+.side-text ul{
+  text-align: left;
+  font-size:17px;
+}
 .side-image{
+  max-width: 100%;
+  max-height: 100%;
   position: relative;
   background-position:  no-repeat center ; 
-  background-size: cover;
+  background-size:contain;
   background-repeat: no-repeat;
 }
 
@@ -127,7 +137,9 @@ body{
     "content"
     "sidebar";
   }
-
+  .side-image{
+    position: center;
+  }
 }
 
 
@@ -149,22 +161,25 @@ body{
 
 .two-column-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 0.8fr;
 }
 
 .image-wrapper img {
   width: 100%;
+  grid-row: 1/2;
 }
 
 .content-wrapper {
   padding: 30px;
+  grid-row: 1/2;
+  font-size: 20px;
 }
 
 .content-wrapper h1 {
   color: lightseagreen;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
   header li a, header li form {
     display: block ;
     float: left !important;
@@ -174,6 +189,22 @@ body{
   .two-column-wrapper{
     grid-template-columns:1fr; 
   }
+  .content-wrapper{
+    font-size:15px;
+  }
+}
 
-
+@media screen and (min-width : 705px) and (max-width: 1000px) {
+  header li a, header li form {
+    display:block;
+    float: left !important;
+    text-align: left;
+    padding: 14px;
+  }
+  .two-column-wrapper{
+    grid-template-columns:1fr; 
+  }
+  .content-wrapper{
+    font-size:22px;
+  }
 }
