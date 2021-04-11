@@ -127,6 +127,9 @@ body{
     text-align: left;
     padding: 14px;
   }
+  .content{
+   padding-right: 0px;
+ }
   .item{
     grid-template-columns:1fr;
     height: 450px;   
@@ -151,6 +154,9 @@ body{
     text-align: left;
     padding: 14px;
   }
+  .content{
+   padding-right: 0px;
+ }
   .item{
     height:450px;
   }
