@@ -7,17 +7,19 @@ let myDoughnutChart = document.getElementById("myChart").getContext('2d');
 let chart1 = new Chart(myDoughnutChart, {
     type: 'doughnut',
     data: {
-        labels: ['YES', 'YES BUT IN GREEN'],
+        labels: ['YES', 'YES BUT IN GREEN','and no'],
         datasets: [ {
-            data: [69, 31],
-            backgroundColor: ['#49A9EA', '#36CAAB']
+            data: [69, 31, 77],
+            backgroundColor:['orange','green','purple']
         }]
     },
     options: {
         title: {
             text: "Do you like doughnuts?",
             display: true
-        }
+        },
+        responsive:true,
+        legend : false,
     }
 });
 
@@ -25,7 +27,7 @@ let labels2 = ['American Airlines Group', 'Ryanair', 'China Southern Airlines', 
 let data2 = [199.6, 130.3, 126.3, 130];
 let colors2 = ['#49A9EA', '#36CAAB', '#34495E', '#B370CF'];
 
-let myChart2 = document.getElementById("myChart2").getContext('2d');
+let myChart2 = document.getElementById("myChart1").getContext('2d');
 
 let chart2 = new Chart(myChart2, {
     type: 'bar',
@@ -80,7 +82,8 @@ let chart3 = new Chart(myChart3, {
         title: {
             text: "Skills",
             display: true
-        }
+        },
+        legend:false,
     }
 });
 
@@ -103,6 +106,7 @@ let chart4 = new Chart(myChart4, {
         title: {
             text: "Population of the European Union (in mio)",
             display: true
-        }
+        },
+        legend:false,
     }
 });
