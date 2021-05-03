@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="mainframe">
+        <div class="header">
+            <img src="./resources/admin.png" width="100px" height="100px">
+            <input class="right headerInput" type="submit" value="submit">
+            <input class="right headerInput" type="search" name="mainsearch" id="mainsearch" placeholder="Search faster">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../index.html" style="float:right;">Logout</a></li>
+                <li><a href="admin_myaccount.html" style="float: right;">My account</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar">
+            <h1>Database</h1>
+            <div class="leftbox">
+                <ul class="sidemenu">
+                    <li><a href="admin_add.html">Add event</a></li>
+                    <li><a href="admin_update.html">Update event</a></li>
+                    <li><a href="admin_delete.html">Delete event</a></li>    
+                    <li><a href="admin_events.html">See events</a></li>
+                </ul>
+            </div>
+
+            <h1>Users and access</h1>
+            <div class="leftbox">
+                <ul class="sidemenu">
+                    <li><a href="admin.html">Admin home page</a></li>
+                    <li><a href="admin_manage.html">Manage access</a></li>
+                </ul>
+            </div>
+
+            <h1>Informations about data</h1>
+            <div class="leftbox">
+                <ul class="sidemenu">
+                    <li><a href="countries.html">Countries ID</a></li>
+                    <li><a href="targsubtype.html" style="color: crimson;">Targ subtype ID</a></li>
+                </ul>
+            </div>
+
+            <h1>Articles</h1>
+            <div class="leftbox">
+                <ul class="sidemenu">
+                    <li><a href="admin_add_article.html">Add article</a></li>
+                    <li><a href="admin_update_article.html">Update article</a></li>
+                    <li><a href="admin_delete_article.html">Delete article</a></li>
+                    <li><a href="admin_see_articles.html">See all articles</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="main">
+            <table class="tablemain">
+                <tr><th>Name</th><th>ID</th></tr>
+                <tr><td>	Gas/Oil/Electric	</td><td>	1	</td></tr>
+                <tr><td>	Restaurant/Bar/Café	</td><td>	2	</td></tr>
+                <tr><td>	Bank/Commerce	</td><td>	3	</td></tr>
+                <tr><td>	Multinational Corporation	</td><td>	4	</td></tr>
+                <tr><td>	Industrial/Textiles/Factory	</td><td>	5	</td></tr>
+                <tr><td>	Medical/Pharmaceutical	</td><td>	6	</td></tr>
+                <tr><td>	Retail/Grocery/Bakery	</td><td>	7	</td></tr>
+                <tr><td>	Hotel/Resort	</td><td>	8	</td></tr>
+                <tr><td>	Farm/Ranch	</td><td>	9	</td></tr>
+                <tr><td>	Mining	</td><td>	10	</td></tr>
+                <tr><td>	Entertainment/Cultural/Stadium/Casino	</td><td>	11	</td></tr>
+                <tr><td>	Construction	</td><td>	12	</td></tr>
+                <tr><td>	Private Security Company/Firm	</td><td>	13	</td></tr>
+                <tr><td>	Judge/Attorney/Court	</td><td>	14	</td></tr>
+                <tr><td>	Politician or Political Party Movement/Meeting/Rally	</td><td>	15	</td></tr>
+                <tr><td>	Royalty	</td><td>	16	</td></tr>
+                <tr><td>	Head of State	</td><td>	17	</td></tr>
+                <tr><td>	Government Personnel (excluding police, military)	</td><td>	18	</td></tr>
+                <tr><td>	Election-related	</td><td>	19	</td></tr>
+                <tr><td>	Intelligence	</td><td>	20	</td></tr>
+                <tr><td>	Government Building/Facility/Office	</td><td>	21	</td></tr>
+                <tr><td>	Police Building (headquarters, station, school)	</td><td>	22	</td></tr>
+                <tr><td>	Police Patrol (including vehicles and convoys)	</td><td>	23	</td></tr>
+                <tr><td>	Police Checkpoint	</td><td>	24	</td></tr>
+                <tr><td>	Police Security Forces/Officers	</td><td>	25	</td></tr>
+                <tr><td>	Prison/Jail	</td><td>	26	</td></tr>
+                <tr><td>	Military Barracks/Base/Headquarters/Checkpost	</td><td>	27	</td></tr>
+                <tr><td>	Military Recruiting Station/Academy	</td><td>	28	</td></tr>
+                <tr><td>	Military Unit/Patrol/Convoy	</td><td>	29	</td></tr>
+                <tr><td>	Military Weaponry	</td><td>	30	</td></tr>
+                <tr><td>	Military Aircraft	</td><td>	31	</td></tr>
+                <tr><td>	Military Maritime	</td><td>	32	</td></tr>
+                <tr><td>	Non-combatant Personnel	</td><td>	33	</td></tr>
+                <tr><td>	Military Personnel (soldiers, troops, officers, forces)	</td><td>	34	</td></tr>
+                <tr><td>	Military Transportation/Vehicle (excluding convoys)	</td><td>	35	</td></tr>
+                <tr><td>	Military Checkpoint	</td><td>	36	</td></tr>
+                <tr><td>	NATO	</td><td>	37	</td></tr>
+                <tr><td>	Paramilitary	</td><td>	39	</td></tr>
+                <tr><td>	Clinics	</td><td>	40	</td></tr>
+                <tr><td>	Personnel	</td><td>	41	</td></tr>
+                <tr><td>	Aircraft (not at an airport)	</td><td>	42	</td></tr>
+                <tr><td>	Airline Officer/Personnel	</td><td>	43	</td></tr>
+                <tr><td>	Airport	</td><td>	44	</td></tr>
+                <tr><td>	Diplomatic Personnel (outside of embassy, consulate)	</td><td>	45	</td></tr>
+                <tr><td>	Embassy/Consulate	</td><td>	46	</td></tr>
+                <tr><td>	International Organization (peacekeeper, aid agency, compound)	</td><td>	47	</td></tr>
+                <tr><td>	Teacher/Professor/Instructor	</td><td>	48	</td></tr>
+                <tr><td>	School/University/Educational Building	</td><td>	49	</td></tr>
+                <tr><td>	Other Personnel	</td><td>	50	</td></tr>
+                <tr><td>	Food Supply	</td><td>	51	</td></tr>
+                <tr><td>	Water Supply	</td><td>	52	</td></tr>
+                <tr><td>	Newspaper Journalist/Staff/Facility	</td><td>	53	</td></tr>
+                <tr><td>	Radio Journalist/Staff/Facility	</td><td>	54	</td></tr>
+                <tr><td>	Television Journalist/Staff/Facility	</td><td>	55	</td></tr>
+                <tr><td>	Other (including online news agencies)	</td><td>	56	</td></tr>
+                <tr><td>	Civilian Maritime	</td><td>	57	</td></tr>
+                <tr><td>	Commercial Maritime	</td><td>	58	</td></tr>
+                <tr><td>	Oil Tanker	</td><td>	59	</td></tr>
+                <tr><td>	Port	</td><td>	60	</td></tr>
+                <tr><td>	Domestic NGO	</td><td>	61	</td></tr>
+                <tr><td>	International NGO	</td><td>	62	</td></tr>
+                <tr><td>	Ambulance	</td><td>	63	</td></tr>
+                <tr><td>	Fire Fighter/Truck	</td><td>	64	</td></tr>
+                <tr><td>	Refugee (including Camps/IDP/Asylum Seekers)	</td><td>	65	</td></tr>
+                <tr><td>	Demilitarized Zone (including Green Zone)	</td><td>	66	</td></tr>
+                <tr><td>	Unnamed Civilian/Unspecified	</td><td>	67	</td></tr>
+                <tr><td>	Named Civilian	</td><td>	68	</td></tr>
+                <tr><td>	Religion Identified	</td><td>	69	</td></tr>
+                <tr><td>	Student	</td><td>	70	</td></tr>
+                <tr><td>	Race/Ethnicity Identified	</td><td>	71	</td></tr>
+                <tr><td>	Farmer	</td><td>	72	</td></tr>
+                <tr><td>	Vehicles/Transportation	</td><td>	73	</td></tr>
+                <tr><td>	Marketplace/Plaza/Square	</td><td>	74	</td></tr>
+                <tr><td>	Village/City/Town/Suburb	</td><td>	75	</td></tr>
+                <tr><td>	House/Apartment/Residence	</td><td>	76	</td></tr>
+                <tr><td>	Laborer (General)/Occupation Identified	</td><td>	77	</td></tr>
+                <tr><td>	Procession/Gathering (funeral, wedding, birthday, religious)	</td><td>	78	</td></tr>
+                <tr><td>	Public Area (garden, parking lot, garage, beach, public building, camp)	</td><td>	79	</td></tr>
+                <tr><td>	Memorial/Cemetery/Monument	</td><td>	80	</td></tr>
+                <tr><td>	Museum/Cultural Center/Cultural House	</td><td>	81	</td></tr>
+                <tr><td>	Labor Union Related	</td><td>	82	</td></tr>
+                <tr><td>	Protester	</td><td>	83	</td></tr>
+                <tr><td>	Political Party Member/Rally	</td><td>	84	</td></tr>
+                <tr><td>	Religious Figure	</td><td>	85	</td></tr>
+                <tr><td>	Place of Worship	</td><td>	86	</td></tr>
+                <tr><td>	Affiliated Institution	</td><td>	87	</td></tr>
+                <tr><td>	Radio	</td><td>	88	</td></tr>
+                <tr><td>	Television	</td><td>	89	</td></tr>
+                <tr><td>	Telephone/Telegraph	</td><td>	90	</td></tr>
+                <tr><td>	Internet Infrastructure	</td><td>	91	</td></tr>
+                <tr><td>	Multiple Telecommunication Targets	</td><td>	92	</td></tr>
+                <tr><td>	Terrorist	</td><td>	93	</td></tr>
+                <tr><td>	Non-State Militia	</td><td>	94	</td></tr>
+                <tr><td>	Tourism Travel Agency	</td><td>	95	</td></tr>
+                <tr><td>	Tour Bus/Van	</td><td>	96	</td></tr>
+                <tr><td>	Tourist	</td><td>	97	</td></tr>
+                <tr><td>	Other Facility	</td><td>	98	</td></tr>
+                <tr><td>	Bus (excluding tourists)	</td><td>	99	</td></tr>
+                <tr><td>	Train/Train Tracks/Trolley	</td><td>	100	</td></tr>
+                <tr><td>	Bus Station/Stop	</td><td>	101	</td></tr>
+                <tr><td>	Subway	</td><td>	102	</td></tr>
+                <tr><td>	Bridge/Car Tunnel	</td><td>	103	</td></tr>
+                <tr><td>	Highway/Road/Toll/Traffic Signal	</td><td>	104	</td></tr>
+                <tr><td>	Taxi/Rickshaw	</td><td>	105	</td></tr>
+                <tr><td>	Gas	</td><td>	106	</td></tr>
+                <tr><td>	Electricity	</td><td>	107	</td></tr>
+                <tr><td>	Oil	</td><td>	108	</td></tr>
+                <tr><td>	Party Official/Candidate/Other Personnel	</td><td>	109	</td></tr>
+                <tr><td>	Party Office/Facility	</td><td>	110	</td></tr>
+                <tr><td>	Rally	</td><td>	111	</td></tr>
+                <tr><td>	Legal Services	</td><td>	112	</td></tr>
+                <tr><td>	Alleged Informant	</td><td>	113	</td></tr>
+
+            </table>
+        </div>
+
+    </div>
+</body> 
+</html>
