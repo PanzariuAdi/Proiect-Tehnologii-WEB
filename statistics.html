@@ -19,7 +19,7 @@
             <li><a href="raport.html">Raport</a></li>
             <!-- <li><a href="#" style="float:right;">Logout</a></li>
             <li><a href="#" style="float: right">My account</a></li>-->
-            <li><a href="login.html" style="float:right;">Login</a></li>
+            <li><a href="admin/admin.html" style="float:right;">Login</a></li>
             <li><a href="#" id="search-button" style="float: right">Submit</a></li>
             <li><form action="" style="float: right;"><input type="text" placeholder="Search.." id="search" > </li></form>
         </ul>
@@ -29,63 +29,153 @@
 <body>
     <div class="dropdown">
         <button class="dropbtn">Settings</button>
-        <div class="dropdown-content">
-
-          <div class="plotcontainer">
-            <label class="checkcontainer">Doughnut
-                <input type="radio" checked="checked" name=radio>
-                <span class="radiobtn"></span>
-            </label>
-            
-            <label class="checkcontainer">Bar
-                <input type="radio" name=radio>
-                <span class="radiobtn"></span>
-            </label>
-            
-            <label class="checkcontainer">radar
-                <input type="radio" name=radio>
-                <span class="radiobtn"></span>
-            </label>
-            
-            <label class="checkcontainer">Pie
-                <input type="radio" name=radio>
-                <span class="radiobtn"></span>
-          </label>
-          </div>
+        <div class="dropdown-content">     
 
           <div class="firstCrit">
-            <label class="checkcontainer">Country
-                <input type="radio" checked="checked" name=radio1>
-                <span class="radiobtn"></span>
-            </label>
-            <label class="checkcontainer">Region
-                <input type="radio" name=radio1>
-                <span class="radiobtn"></span>
-            </label>
-            <label class="checkcontainer">Attack Type
-                <input type="radio" name=radio1>
-                <span class="radiobtn"></span>
-            </label>
+            <div class="other"> 
+            </div>
+              <div class="select-criterion1">
+                <div class="selected-criterion1 ">
+                    Choose the first criterion: 
+                  </div>
+                  <div class="criterion1-options">
+                      <div class="option">
+                          <input type="radio" class="radio" id="country" name="firstCrit">
+                          <label for="country">Country</label>
+                      </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="region" name="firstCrit">
+                        <label for="region">Region</label>
+                      </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="city" name="firstCrit">
+                        <label for="city">City</label>
+                    </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="attack-type" name="firstCrit">
+                        <label for="attack-type">Attack-type</label>
+                     </div>
+                     <div class="option">
+                        <input type="radio" class="radio" id="year" name="firstCrit">
+                        <label for="year">Year</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="month" name="firstCrit">
+                        <label for="month">Month</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="day" name="firstCrit">
+                        <label for="day">Day</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="target-type" name="firstCrit">
+                        <label for="target-type">Target-type</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="nationality" name="firstCrit">
+                        <label for="nationality">Nationality</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="motive" name="firstCrit">
+                        <label for="motive">Motive</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="weapon-type" name="firstCrit">
+                        <label for="weapon-type">Weapon-type</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="claim-mode" name="firstCrit">
+                        <label for="claim-mode">Claim-mode</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="nr-of-attacks" name="firstCrit">
+                        <label for="nr-of-attacks">Nr. of attacks</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="value">
+                <form action="" style="float: right;"><input type="text" placeholder="Value.." id="search" > </form>
+              </div>
           </div>
 
           <div class="secondCrit">
-            <label class="checkcontainer">Casualities
-                <input type="radio" checked="checked" name=radio2>
-                <span class="radiobtn"></span>
-            </label>
             
-            <label class="checkcontainer">Succes
-                <input type="radio" name=radio2>
-                <span class="radiobtn"></span>
-            </label>
-            <label class="checkcontainer">Fail
-                <input type="radio" name=radio2>
-                <span class="radiobtn"></span>
-            </label>
+            <div class="other"> 
+            </div>
+              <div class="select-criterion2">
+                <div class="selected-criterion2 ">
+                    Choose the second criterion: 
+                  </div>
+                  <div class="criterion2-options">
+                      <div class="option">
+                          <input type="radio" class="radio" id="casualities" name="secondCrit">
+                          <label for="casualities">Casualities</label>
+                      </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="succes" name="secondCrit">
+                        <label for="succes">Succes</label>
+                      </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="fail" name="secondCrit">
+                        <label for="fail">Fail</label>
+                     </div>
+                     <div class="option">
+                        <input type="radio" class="radio" id="perp" name="secondCrit">
+                        <label for="perp">Perp</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="nr-of-kills" name="secondCrit">
+                        <label for="nr-of-kills">Nr. of kills</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="nr-of-wounded" name="secondCrit">
+                        <label for="nr-of-wounded">Nr. of wounded</label>
+                    </div>
+                    <div class="option">
+                        <input type="radio" class="radio" id="claimed" name="secondCrit">
+                        <label for="claimed">Claimed</label>
+                    </div>
+                  </div>
+              </div>
+              <div class="value2">
+                <form action="" style="float: right;"><input type="text" placeholder="Value.." id="search" > </form>
+              </div>
           </div>
 
+          <div class="chart-type">
+              
+            <div class="other"> 
+            </div>
+              <div class="select-type">
+                <div class="selected-type">
+                    Choose the chart type: 
+                  </div>
+                  <div class="type-options">
+                      <div class="option">
+                          <input type="radio" class="radio" id="doughnut" name="category">
+                          <label for="doughnut">Doughnut</label>
+                      </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="bar" name="category">
+                        <label for="bar">Bar</label>
+                      </div>
+                      <div class="option">
+                        <input type="radio" class="radio" id="radar" name="category">
+                        <label for="radar">Radar</label>
+                     </div>
+                     <div class="option">
+                        <input type="radio" class="radio" id="pie" name="category">
+                        <label for="pie">Pie</label>
+                    </div>
+
+                  </div>
+              </div>
+          </div>
+          <div class="submit-button">
+              <button type="button">Submit</button>
+          </div>
         </div>
-      </div>
+    </div>
     <div class="container">
             <canvas id="myChart"></canvas>
     </div>
@@ -98,7 +188,28 @@
     <div class="container">
         <canvas id="myChart4"></canvas>
     </div>
+    <div class="export">
+        <div class="export-type">
+            Choose the export type: 
+            <label class="checkcontainer">CSV
+                <input type="radio" checked="checked" name=radio>
+                <span class="radiobtn"></span>
+            </label>
+            
+            <label class="checkcontainer">WebP
+                <input type="radio" name=radio>
+                <span class="radiobtn"></span>
+            </label>
+            
+            <label class="checkcontainer">SVG
+                <input type="radio" name=radio>
+                <span class="radiobtn"></span>
+            </label>
+            <button type="button">Export</button>
+        </div> 
+    </div>
 
 <script src="script.js"></script>
+<script src="dropdown.js"></script>
 </body> 
 </html>
