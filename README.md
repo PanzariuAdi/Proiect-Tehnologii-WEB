@@ -1,7 +1,8 @@
 # Proiect-Tehnologii-WEB
 Terrorism Web Visualizer
   
-Realizat de : 
+Realizat de :
+
   Cirjanu Andrei
   
   Ghiuzan Emanuel-Gabriel
