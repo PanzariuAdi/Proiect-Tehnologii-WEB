@@ -14,6 +14,9 @@
         public function details() {
             $this->view('pages/details');
         }
+        public function statistics() {
+            $this->view('pages/statistics');
+        }
         
     }
 ?>

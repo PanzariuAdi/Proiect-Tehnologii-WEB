@@ -11,6 +11,15 @@
   }
 }
 
+select {
+  text-align: center;
+
+}
+option{
+  text-align: center;
+}
+
+
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -26,7 +35,7 @@
     display: inline-block;
     width: 100%;
     top:0; 
-    text-align: center;
+    text-align: center !important;
     color:black;
   }
   
@@ -46,4 +55,7 @@
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
 
- 
+ .dropContainer{
+   display: inline-block;
+   width: 50%;
+ }
