@@ -3,8 +3,11 @@ Terrorism Web Visualizer
   
 Realizat de : 
   Cirjanu Andrei
+  
   Ghiuzan Emanuel-Gabriel
+  
   Panzariu Ionut-Adrian
+  
   
 ### TODO
 - [ ] Admin module @Adi
