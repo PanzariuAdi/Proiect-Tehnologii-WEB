@@ -12,8 +12,10 @@ Realizat de :
   
 ### TODO
 - [ ] Admin module @Adi
-- [ ] Database @Adi
 - [ ] Attack Page Details @Adi
 - [ ] Statistics @Emi
 - [ ] Advanced Search @Andrei
 - [ ] Maps page @Andrei
+
+### DOING
+- [ ] Database @Adi
