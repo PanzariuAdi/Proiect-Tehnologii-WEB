@@ -18,4 +18,7 @@ Realizat de :
 - [ ] Maps page @Andrei
 
 ### DOING
-- [ ] Database @Adi
+- [ ] Web service for communicate to the database @Adi
+
+### Done
+- [x] Database @Adi
