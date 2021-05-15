@@ -41,21 +41,160 @@ option{
   
   .dropdown-content {
     display: none;
-    position: absolute;
+
     background-color: #f1f1f1;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     width: 100%;
   }
 
-
-  .dropdown:hover .dropdown-content {display: block;}
+  .dropContainer{
+    margin-bottom: 5px;
+  }
+  /* .dropdown:hover .dropdown-content {display: block;}
   
  
-  .dropdown:hover .dropbtn {background-color: #3e8e41;}
+  .dropdown:hover .dropbtn {background-color: #3e8e41;} */
 
+  .selectAll{
+    grid-column: 1/4;
+  }
+
+  .gridContent{
+    display : grid  !important;
+    grid-template-columns: auto  auto auto;
+  }
+  .gridYAXIS{
+    display: grid !important;
+    grid-template-columns: auto auto ;
+  }
+  
+  #settingsDD:hover #settingsContent {display: block;}
+
+  #settingsDD:hover #settingsBTN {background-color: #3e8e41;}
+
+  #countryDD:hover #countryContent {display: block;}
+
+  #countryDD:hover #countryBTN {background-color: #3e8e41;}
+
+  #regionDD:hover #regionContent {display: block;}
+
+  #regionDD:hover #regionBTN {background-color: #3e8e41;}
+
+  #stateDD:hover #stateContent {display: block;}
+
+  #stateDD:hover #stateBTN {background-color: #3e8e41;}
+
+  #cityDD:hover #cityContent {display: block;}
+
+  #cityDD:hover #cityBTN {background-color: #3e8e41;}
+
+  #attackTypeDD:hover #attackTypeContent {display: block;}
+
+  #attackTypeDD:hover #attackTypeBTN {background-color: #3e8e41;}
+  
+  #targetNatalityDD:hover #targetNatalityContent {display: block;}
+
+  #targetNatalityDD:hover #targetNatalityBTN {background-color: #3e8e41;}
+
+  #gangDD:hover #gangContent {display: block;}
+
+  #gangDD:hover #gangBTN {background-color: #3e8e41;}
+
+  #motiveDD:hover #motiveContent {display: block;}
+
+  #motiveDD:hover #motiveBTN {background-color: #3e8e41;}
+
+  #weaponTypeDD:hover #weaponTypeContent {display: block;}
+
+  #weaponTypeDD:hover #weaponTypeBTN {background-color: #3e8e41;}
+  
+  #weaponSubtypeDD:hover #weaponSubtypeContent {display: block;}
+
+  #weaponSubtypeDD:hover #weaponSubtypeBTN {background-color: #3e8e41;}
+
+  #lossExtentDD:hover #lossExtentContent {display: block;}
+
+  #lossExtentDD:hover #lossExtentBTN {background-color: #3e8e41;}
+
+  #yearDD:hover #yearContent {display: block;}
+
+  #yearDD:hover #yearBTN {background-color: #3e8e41;}
+
+  #monthDD:hover #monthContent {display: block;}
+
+  #monthDD:hover #monthBTN {background-color: #3e8e41;}
+
+  #AttacksDD:hover #AttacksContent {display: block;}
+
+  #AttacksDD:hover #AttacksBTN {background-color: #3e8e41;}
+
+  #CasualitiesDD:hover #CasualitiesContent {display: block;}
+
+  #CasualitiesDD:hover #CasualitiesBTN {background-color: #3e8e41;}
+
+  #Loss_ValueDD:hover #Loss_ValueContent {display: block;}
+
+  #Loss_ValueDD:hover #Loss_ValueBTN {background-color: #3e8e41;}
+  
+  #TerroristsDD:hover #TerroristsContent {display: block;}
+
+  #TerroristsDD:hover #TerroristsBTN {background-color: #3e8e41;}
+
+  #Ransom_AmmountDD:hover #Ransom_AmmountContent {display: block;}
+
+  #Ransom_AmmountDD:hover #Ransom_AmmountBTN {background-color: #3e8e41;}
+
+  #RansomDD:hover #RansomContent {display: block;}
+
+  #RansomDD:hover #RansomBTN {background-color: #3e8e41;}
+
+  #Without_RansomDD:hover #Without_RansomContent {display: block;}
+
+  #Without_RansomDD:hover #Without_RansomBTN {background-color: #3e8e41;}
+
+  #Failed_AttacksDD:hover #Failed_AttacksContent {display: block;}
+
+  #Failed_AttacksDD:hover #Failed_AttacksBTN {background-color: #3e8e41;}
+  
+  #Successful_AttacksDD:hover #Successful_AttacksContent {display: block;}
+
+  #Successful_AttacksDD:hover #Successful_AttacksBTN {background-color: #3e8e41;}
+
+  #SuicidesDD:hover #SuicidesContent {display: block;}
+
+  #SuicidesDD:hover #SuicidesBTN {background-color: #3e8e41;}
+  
+  #Without_SuicidesDD:hover #Without_SuicidesContent {display: block;}
+
+  #Without_SuicidesDD:hover #Without_SuicidesBTN {background-color: #3e8e41;}
+
+  #WoundedDD:hover #WoundedContent {display: block;}
+
+  #WoundedDD:hover #WoundedBTN {background-color: #3e8e41;}
+
+  #ExtendedDD:hover #ExtendedContent {display: block;}
+
+  #ExtendedDD:hover #ExtendedBTN {background-color: #3e8e41;}
+
+  #Not_ExtendedDD:hover #Not_ExtendedContent {display: block;}
+
+  #Not_ExtendedDD:hover #Not_ExtendedBTN {background-color: #3e8e41;}
+  
+
+  
+  .templateLowerValueDiv{
+    display: none;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  .templateUpperValueDiv{
+    display:none;
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
 
  .dropContainer{
    display: inline-block;
-   width: 50%;
+   width: 51%;
  }
