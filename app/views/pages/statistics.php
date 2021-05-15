@@ -28,20 +28,21 @@
 </header>   
 
 <body>
-    <div class="dropdown">
-        <button class="dropbtn">Settings</button>
-        <div class="dropdown-content">
-
+    <div class="dropdown" id = "settingsDD">
+        <button class="dropbtn" id = "settingsBTN">Settings</button>
+        <div class="dropdown-content" id = "settingsContent">
             <div class = "dropContainer">
             <select name = "graphForm" id="graphForm" onchange="updateChartType()">
                 <?php foreach(CHARTS as $val) echo '<option>'.$val.'</option>';?>
             </select>
             </div>
+
             <div class = "dropContainer">
                 <select name = "XAXISForm" id="XAXISForm">
                     <?php foreach(XAXIS as $val) echo '<option>'.$val.'</option>';?>
                 </select>    
             </div>
+
             <div class = "dropContainer">
                 <select name = "YAXISForm" id="YAXISForm">
                     <?php foreach(YAXIS as $val) echo '<option>'.$val.'</option>';?>
@@ -49,32 +50,108 @@
             </div>
 
             <div class="dropContainer">
-                Filters
+                Filters XAXIS
             </div>
-            <div class = "dropContainer">
-            <select id="select-meal-type" multiple="multiple">
-            <option value="1">Breakfast</option>
-            <option value="2">Lunch</option>
-            <option value="3">Dinner</option>
-            <option value="4">Snacks</option>
-            <option value="5">Dessert</option>
-            </select>
-            </div>
+
             <div class = "dropContainer">
                 <select name = "firstOrLastN">
                     <option>First values</option>
                     <option>Last values</option>
                 </select>   
             </div>
-            <form>
+
             <div class = "dropContainer">
                 <label for = "nval"> First/Last n:</label>
-                <input type = "text" id = "nval" name = "nval">
+                <input type = "number" id = "nval" name = "nval" value ="10">
             </div>
+
+             <?php foreach(selectable as $item){
+                echo '<div class  = "dropContainer">';
+                echo '<div class = "dropdown" id = "'.$item.'DD">';
+                echo '<button class = "dropbtn" id = "'.$item.'BTN">'.$item.'</button>';
+                echo '<div class = "dropdown-content" class = "checkContent" id = "'.$item.'Content">';
+                echo '<div class = "gridContent">';
+                echo '<div class ="selectAll">';
+                echo '<input type = "checkbox" name ="selectAll'.$item.'" id = "selectAll'.$item.'" onchange="selectAll(\''.$item.'\')">';
+                echo '<label>Select all</label>';
+                echo '</div>';
+                for($i = 0 ; $i<3;$i++){
+                    echo '<div>
+                    <input type = "checkbox" name ="'.$item.$i.'" id="'.$item.$i.'">
+                    <label>'.$item.$i.'</label>
+                    </div>   ';
+                };
+                echo '</div>    
+                </div>
+            </div>
+            </div>';
+            }?>
+           
             <div class = "dropContainer">
-                <input type = "submit" value= "Submit">
-            </div>
-            </form>    
+                Filters YAXIS
+            </div> 
+
+
+            <?php
+            foreach(YAXIS as $item){
+                echo'
+                <div class = "dropContainer">
+                <div class = "dropdown" id = "'.$item.'DD">
+                    <button class = "dropbtn" id = "'.$item.'BTN">'.$item.'</button>
+                    <div class = "dropdown-content" id = "'.$item.'Content">    
+                        <div class ="gridYAXIS">
+                            <div>
+                                <label>Lower Bound</label>
+                                <input type = "checkbox" name = "'.$item.'LowerCheck" id="'.$item.'LowerCheck" onchange="lowerBoundChange(\''.$item.'\')">
+                            </div>
+                            <div id = "'.$item.'LowerValueDiv" class = "templateLowerValueDiv">
+                                <label>value</label>
+                                <input type = "number" name="AttackLowerValue" id ="AttackLowerValue" value = "0" >
+                            </div>      
+                            <div>
+                                <label>Upper Bound</label>
+                                <input type = "checkbox" name = "'.$item.'UpperCheck" id="'.$item.'UpperCheck" onchange="upperBoundChange(\''.$item.'\')">
+                            </div>
+                            <div id ="'.$item.'UpperValueDiv" class ="templateUpperValueDiv">
+                                <label>value</label>
+                                <input type = "number" name="'.$item.'UpperValue" id="'.$item.'UpperValue" value = "10" >
+                            </div>
+
+                        </div>    
+                    </div>
+                </div>
+            </div>    
+                ';
+            };
+            
+            ?>
+            
+            <!-- <div class = "dropContainer">
+                <div class = "dropdown" id = "'.$item.'DD">
+                    <button class = "dropbtn" id = "'.$item.'BTN">'.$item.'</button>
+                    <div class = "dropdown-content" id = "'.$item.'Content">    
+                        <div class ="gridYAXIS">
+                            <div>
+                                <label>Lower Bound</label>
+                                <input type = "checkbox" name = "'.$item.'LowerCheck" id="'.$item.'LowerCheck" onchange="lowerBoundChange(''.$item.'')">
+                            </div>
+                            <div id = "'.$item.'LowerValueDiv" class = "templateLowerValueDiv">
+                                <label>value</label>
+                                <input type = "number" name="AttackLowerValue" id ="AttackLowerValue" value = "0" >
+                            </div>      
+                            <div>
+                                <label>Upper Bound</label>
+                                <input type = "checkbox" name = "'.$item.'UpperCheck" id="'.$item.'UpperCheck" onchange="upperBoundChange(''.$item.'')">
+                            </div>
+                            <div id ="'.$item.'UpperValueDiv" class ="templateUpperValueDiv">
+                                <label>value</label>
+                                <input type = "number" name="'.$item.'UpperValue" id="'.$item.'UpperValue" value = "10" >
+                            </div>
+
+                        </div>    
+                    </div>
+                </div>
+            </div>     -->
 
         </div>
       </div>
