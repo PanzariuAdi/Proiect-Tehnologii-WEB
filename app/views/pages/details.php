@@ -9,16 +9,7 @@
     <link rel="stylesheet" href="<?php echo URL_ROOT; ?>/css/style-home.css">
 </head>
 <header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="map.html">Maps</a></li>
-            <li><a href="statistics.html">Statistics</a></li>
-            <li><a href="#" style="float:right;">Login</a></li>
-            <li><a href="#" id="search-button" style="float: right">Submit</a></li>
-            <li><form action="" style="float: right;"><input type="text" placeholder="Search.." id="search" > </li></form>
-        </ul>
-    </nav>
+    <?php include APP_ROOT . '/views/inc/navbar.php'; ?>
 </header>   
 <body>
     <div class="content-wrapper">

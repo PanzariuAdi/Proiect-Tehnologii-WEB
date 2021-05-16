@@ -10,18 +10,7 @@
 </head>
 
 <header>
-    <nav>
-        <ul>
-            <li><a href="<?php echo URL_ROOT; ?>/pages">Home</a></li>
-            <li><a href="map.html">Maps</a></li>
-            <li><a href="statistics.html">Statistics</a></li>
-            <li><a href="raport.html">Raport</a></li>
-            <!-- <?php include './php_scripts/show_admin_login.php' ?> -->
-            
-            <li><a href="#" id="search-button" style="float: right">Submit</a></li>
-            <li><form action="" style="float: right;"><input type="text" placeholder="Search.." id="search" > </li></form>
-        </ul>
-    </nav>
+    <?php include APP_ROOT . '/views/inc/navbar.php'; ?>
 </header>   
 
 <body>
