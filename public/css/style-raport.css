@@ -44,7 +44,7 @@
     float: left;
     font-size: 12px;
   }
-  body{
+  .container-content{
       font-size: 18px;
   }
   body h1,h2{
