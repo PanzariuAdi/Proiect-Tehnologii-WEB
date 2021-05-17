@@ -28,7 +28,7 @@
                             <h3>Sweden: Terrorism eyed after ax attack injures 8</h3>
                             A man armed with an ax attacked and injured eight people in a southern Swedish town Wednesday before being shot and arrested, police said.<br><br>
                             Link for further information: 
-                            <a href="details.html">details</a>
+                            <a href="<?php echo URL_ROOT; ?>/pages/details">details</a>
                             <p><strong>Published</strong> 10.04.2021</p>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                             <h3>New York City subway bomber should get life sentence, prosecutors say</h3>
                             A Bangladeshi immigrant who set off a pipe bomb attached to his chest in New York City’s busiest subway station should spend the rest of his life behind bars for a "premeditated and vicious" terror attack. <br><br>
                             Link for further information: 
-                            <a href="details.html">details</a>
+                            <a href="<?php echo URL_ROOT; ?>/pages/details">details</a>
                             <p><strong>Published</strong> 09.04.2021</p>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <h3>10 of Britain’s most dangerous convicted terrorists seeking early release through parole</h3>
                             Ten of Britain’s most dangerous convicted terrorists are bidding for early release through parole, according to reports.<br><br>
                             Link for further information: 
-                            <a href="details.html">details</a>
+                            <a href="<?php echo URL_ROOT; ?>/pages/details">details</a>
                             <p><strong>Published</strong> 08.04.2021</p>
                         </div>
                     </div>
