@@ -24,14 +24,7 @@
             ];
             $this->view('pages/details', $data);
         }
-
-        public function login() {
-            $data = [
-                'title' => 'login'
-            ];
-            $this->view('pages/login', $data);
-        }
-
+        
         public function map() {
             $data = [
                 'title' => 'map'

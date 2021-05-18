@@ -38,6 +38,15 @@ input[type="submit"]:hover {
     background-color: red;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a:hover {
+    color: red;
+}
+
 @media only screen and (max-width: 900px) {
     .mainframe {
         width: 100%;
@@ -55,5 +64,4 @@ input[type="submit"]:hover {
         width: 80%;
         margin: 0px;
     }
-
 }
