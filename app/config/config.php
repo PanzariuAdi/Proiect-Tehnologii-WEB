@@ -4,7 +4,7 @@
     define('DB_HOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASS', '');
-    define('DB_NAME', 'terrorism');
+    define('DB_NAME', 'terorism');
 
     // app root
     define('APP_ROOT', dirname(dirname(__FILE__)));
@@ -23,6 +23,7 @@
     define('YAXIS', array('Attacks','Casualities','Successful attacks','Failed attacks','Suicides','Wounded','Loss value','Ransom','Ransom Ammount','Extended(more or less than 24 hours)','Not Extended(less than 24 hours)','Terrorists'));
     
     define('selectable', array('country' , 'region','state','city','attackType','targetNatality','gang','motive','weaponType','weaponSubtype','lossExtent','year','month'));
+    define('selectableMap',array('country'=>'country_txt', 'region'=>'region_txt','state'=>'provstate','city'=>'city','attackType'=>'attacktype1_txt','targetNatality'=>'natlty1_txt','gang'=>'gname','motive'=>'motive','weaponType'=>'weaptype1_txt','weaponSubtype'=>'weapsubtype1_txt','lossExtent'=>'propextent_txt','year'=>'iyear','month'=>'imonth'));
     
 
 ?>

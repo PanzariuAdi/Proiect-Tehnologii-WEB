@@ -13,7 +13,7 @@
 
 <header>
     <?php include APP_ROOT . '/views/inc/navbar.php'; ?>
-    <?php echo $data['json_values']; ?>
+    <!-- <?php echo $data['country']; ?> -->
 </header>   
 
 <body>
@@ -54,7 +54,8 @@
                 <input type = "number" id = "nval" name = "nval" value ="10">
             </div>
 
-             <?php foreach(selectable as $item){
+             <?php foreach(selectable as $item){ 
+
                 echo '<div class  = "dropContainer">';
                 echo '<div class = "dropdown" id = "'.$item.'DD">';
                 echo '<button class = "dropbtn" id = "'.$item.'BTN">'.$item.'</button>';
@@ -64,11 +65,15 @@
                 echo '<input type = "checkbox" name ="selectAll'.$item.'" id = "selectAll'.$item.'" onchange="selectAll(\''.$item.'\')">';
                 echo '<label>Select all</label>';
                 echo '</div>';
-                for($i = 0 ; $i<3;$i++){
+
+                $i = 0;
+                $json = json_decode($data[$item],true);
+                foreach($json as $opt){
                     echo '<div>
-                    <input type = "checkbox" name ="'.$item.$i.'" id="'.$item.$i.'">
-                    <label>'.$item.$i.'</label>
+                    <input type = "checkbox" name ="'. $opt[selectableMap[$item]] .'" id="'.$item.$i.'">
+                    <label>'.$opt[selectableMap[$item]].'</label>
                     </div>   ';
+                    $i=$i+1;
                 };
                 echo '</div>    
                 </div>

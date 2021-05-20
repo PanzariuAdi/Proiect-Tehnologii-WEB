@@ -20,5 +20,12 @@
             return json_encode($result);
 
         }
+        public function getColumn($column) {
+            $query = "SELECT DISTINCT " . $column . " FROM terrorism";
+            $this->db->query($query);
+            $result = $this->db->resultSet();
+        
+            return json_encode($result);
+        }
 
     }
