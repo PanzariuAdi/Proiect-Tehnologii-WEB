@@ -4,7 +4,7 @@
     define('DB_HOST', 'localhost');
     define('DB_USER', 'root');
     define('DB_PASS', '');
-    define('DB_NAME', 'terorism');
+    define('DB_NAME', 'terrorism');
 
     // app root
     define('APP_ROOT', dirname(dirname(__FILE__)));
