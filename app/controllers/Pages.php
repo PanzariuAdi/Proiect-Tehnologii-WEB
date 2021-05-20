@@ -2,7 +2,8 @@
     class Pages extends Controller {
 
         public function __construct() {
-         } 
+            $this->userModel = $this->model('Page');
+        } 
 
         public function index() {
             $data = [
@@ -24,7 +25,7 @@
             ];
             $this->view('pages/details', $data);
         }
-        
+
         public function map() {
             $data = [
                 'title' => 'map'
@@ -33,10 +34,17 @@
         }
 
         public function statistics() {
-            $data = [
-                'title' => 'statistics'
-            ];
-            $this->view('pages/statistics', $data);
+            $data['title'] = 'statistics';
+            $data['json_values'] = '';
+
+            if($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $data['json_values'] = '';               
+                $data['json_values'] = $this->userModel->getColumn($_GET['column']);
+                $this->view('pages/statistics', $data);
+            } else {
+                $this->view('pages/statistics', $data);
+            }
+            
         }
 
         public function raport() {
@@ -45,5 +53,6 @@
             ];
             $this->view('pages/raport', $data);
         }
+
     }
 ?>

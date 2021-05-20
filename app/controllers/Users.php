@@ -23,7 +23,7 @@
 
                 if(empty($data['name'])) {
                     $data['name_err'] = 'You need to enter a name !';
-                } else {
+                } else {    
                     if($this->userModel->findUserByName($data['name'])) {
                         $data['name_err'] = 'Name already taken !';
                     }
@@ -75,7 +75,6 @@
         public function login() {
             // Check for post
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
-                //process form
 
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -83,30 +82,30 @@
                     'name' => trim($_POST['username']),
                     'password' => trim($_POST['password']),
                     'name_err' => '',
-                    'password_err' => '',
+                    'password_err' => ''
                 ];
 
                 if(empty($data['name'])) {
-                    $data['name_err'] = 'You need to enter an email !';
+                    $data['name_err'] = 'You need to enter a name !';
                 }        
 
                 if(empty($data['password'])) {
                     $data['password_err'] = 'You need to put a password !';
+                    http_response_code(404);
                 }
 
-                if($data['name'] != '' && $this->userModule->findUserByName($data['name'])) {
+                if($this->userModel->findUserByName($data['name'])) {
                     // User found
                 } else {
                     $data['name_err'] = 'No user found !';
                 }
 
-// TODO REPAIR THIS
 
                 // Errors are empty
                 if(empty($data['name_err']) && empty($data['password_err'])) {
                     // Validated 
                     // Check and set logged user
-                    $loggedInUser = $this->userModule->login($data['name'], $data['password']);
+                    $loggedInUser = $this->userModel->login($data['name'], $data['password']);
 
                     if($loggedInUser) {
                         // Create session variables
@@ -123,7 +122,7 @@
             } else {
                 // init data
                 $data = [
-                    'name' => '',
+                    'name' => '', 
                     'password' => '',
                     'name_err' => '',
                     'password_err' => '',

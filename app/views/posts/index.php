@@ -1,3 +1,3 @@
-<?php foreach($data['posts'] as $post) : ?>
-    <h3><?php echo $post->eventid ?></h3>
-<?php endforeach ?>
+<?php echo "<pre>"; ?>
+<?php echo $data['posts']; ?>
+<?php echo "</pre>"; ?>

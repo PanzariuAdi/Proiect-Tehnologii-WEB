@@ -13,6 +13,7 @@
 
 <header>
     <?php include APP_ROOT . '/views/inc/navbar.php'; ?>
+    <?php echo $data['json_values']; ?>
 </header>   
 
 <body>

@@ -13,13 +13,13 @@
         <form action="<?php echo URL_ROOT; ?>/users/register" method="POST">
             <h1>Register</h1>
             <label for="username">Username</label><br><br>
-            <input type="text" name="username"><br><br>
+            <input type="text" name="username" placeholder="<?php echo $data['name_err']; ?>"><br><br>
 
             <label for="password">Password</label><br><br>
-            <input type="password" name="password"><br><br>
+            <input type="password" name="password" placeholder="<?php echo $data['password_err']; ?>"><br><br>
 
             <label for="confirm_password">Confirm password</label><br><br>
-            <input type="password" name="confirm_password"><br><br>
+            <input type="password" name="confirm_password" placeholder="<?php echo $data['confirm_password_err']; ?>"><br><br>
 
             <input type="submit" name="submit"> <br><br>
             <a href="<?php echo URL_ROOT; ?>/users/login">Already have an acount ? Login here</a><br><br>

@@ -7,20 +7,18 @@
         }
 
         public function getPosts() {
-            $this->db->query("SELECT * FROM terrorism");
+            $this->db->query("SELECT DISTINCT country_txt FROM terrorism");
             $result = $this->db->resultSet();
-            return $result;
-            // echo json_encode($this->db->resultSet());
-        }   
 
-        public function getColumnsData($columns) { 
-            $stmt = "SELECT ";
-            foreach($columns as $column) {
-                $stmt = $stmt . $column;
-            }
-            $stmt = $stmt . ' FROM terrorism';
-            $this->db->query($stmt);
-            $result = $this->db->resultSet();
-            return $result;
+            return json_encode($result);
         }
+
+        public function getRegions() {
+            $this->db->query("SELECT DISTINCT region_txt FROM terrorism");
+            $result = $this->db->resultSet();
+
+            return json_encode($result);
+
+        }
+
     }

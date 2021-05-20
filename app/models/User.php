@@ -21,7 +21,7 @@
 
         // Login user
         public function login($name, $password) {
-            $this->db->query('SELECT * FROM users WHERE name = :name');
+            $this->db->query("SELECT * FROM users WHERE name = :name");
             $this->db->bind(':name', $name);
 
             $row = $this->db->single();
@@ -35,24 +35,18 @@
 
         // Find user by name
         public function findUserByName($name) {
-            $this->db->query('SELECT * FROM users WHERE name = :name');
+            $this->db->query("SELECT * FROM users WHERE name = :name");
             $this->db->bind(':name', $name);
 
             $row = $this->db->single();
 
             // Check if name exists
-            if($this->db->rowCount() > 0) {
+            if($this->db->rowCount() > 0)
                 return true;
-            } 
-            
-            return false;
+            else
+                return false;
             
         }
 
-        public function getPosts() {
-            $this->db->query("SELECT * FROM terrorism");
-            // return $this->db->resultSet();
-            return json_encode($this->db->resultSet());
-        }
     }
 ?>
