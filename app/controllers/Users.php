@@ -73,6 +73,10 @@
         }
 
         public function login() {
+            if($this->isLoggedIn()) {
+                redirect('admin');
+            }
+
             // Check for post
             if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -109,7 +113,7 @@
 
                     if($loggedInUser) {
                         // Create session variables
-                        die('Succes');
+                        $this->createUserSession($loggedInUser);
                     } else {
                         $data['password_err'] = 'Password incorrect !';
                         $this->view('users/login', $data);
@@ -122,7 +126,7 @@
             } else {
                 // init data
                 $data = [
-                    'name' => '', 
+                    'name' => '',   
                     'password' => '',
                     'name_err' => '',
                     'password_err' => '',
@@ -131,6 +135,28 @@
                 // Load view
                 $this->view('users/login', $data);
             }
-        }
+         }
         
+         public function createUserSession($user) {
+            session_start(); 
+            $_SESSION['user_id'] = $user->id;
+            $_SESSION['name'] = $user->name;
+            redirect('admin');
+         }
+
+         public function logout() {
+             session_start();
+             unset($_SESSION['user_id']);
+             unset($_SESSION['username']);
+             session_destroy();
+             redirect('pages');
+         }
+
+         public function isLoggedIn() {
+            session_start();
+            if(isset($_SESSION['user_id'])) {
+                return true;
+            }
+            return false;
+        }
     }   
