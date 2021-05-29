@@ -22,7 +22,8 @@
 
     define('YAXIS', array('Attacks','Casualities','Successful attacks','Failed attacks','Suicides','Wounded','Loss value','Ransom','Ransom Ammount','Extended(more or less than 24 hours)','Not Extended(less than 24 hours)','Terrorists'));
     
-    define('selectable', array('country' , 'region','state','city','attackType','targetNatality','gang','motive','weaponType','weaponSubtype','lossExtent','year','month'));
+    define('selectable', array('country' , 'region','city','motive','state','gang','attackType','targetNatality','weaponType','weaponSubtype','lossExtent','year','month'));
+    define('selectableMap',array('country'=>'country_txt', 'region'=>'region_txt','state'=>'provstate','city'=>'city','attackType'=>'attacktype1_txt','targetNatality'=>'natlty1_txt','gang'=>'gname','motive'=>'motive','weaponType'=>'weaptype1_txt','weaponSubtype'=>'weapsubtype1_txt','lossExtent'=>'propextent_txt','year'=>'iyear','month'=>'imonth'));
     
-
+    
 ?>

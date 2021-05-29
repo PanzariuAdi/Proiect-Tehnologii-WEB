@@ -20,5 +20,17 @@
             return json_encode($result);
 
         }
+        public function getColumn($column) {
+            $query = "SELECT DISTINCT " . $column . " as value FROM terrorism";
+            $this->db->query($query);
+            $result = $this->db->resultSet();
+            return json_encode($result);
+        }
+        public function getData($xaxis,$yaxis){
+            $query = "SELECT DISTINCT ".$xaxis." as field, count(*) as value FROM terrorism group by ".$xaxis." order by count(*) desc";
+            $this->db->query($query);
+            $result = $this->db->resultSet();
+            return json_encode($result);
+        }
 
     }

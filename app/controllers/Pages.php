@@ -34,17 +34,11 @@
         }
 
         public function statistics() {
-            $data['title'] = 'statistics';
-            $data['json_values'] = '';
-
-            if($_SERVER['REQUEST_METHOD'] == 'GET') {
-                $data['json_values'] = '';               
-                $data['json_values'] = $this->userModel->getColumn($_GET['column']);
-                $this->view('pages/statistics', $data);
-            } else {
-                $this->view('pages/statistics', $data);
-            }
-            
+            $data['title'] = 'statistics';       
+            foreach(selectable as $item)
+                //$data[$item] = file_get_contents('http://localhost/proiect-mvc/posts/columns?col='.selectableMap[$item]);
+                //$data[$item] = $this->userModel->getColumn(selectableMap[$item]);
+            $this->view('pages/statistics', $data);
         }
 
         public function raport() {
