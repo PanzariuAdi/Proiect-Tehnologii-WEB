@@ -18,9 +18,8 @@ Realizat de :
 
 ### DOING
 - [ ] Attack Page Details @Adi
-
+- [ ] Admin module @Adi
 ### Done
 - [x] Web service for communication with database @Adi
-- [x] Admin module @Adi
 - [x] Database @Adi
 - [x] Statistics @Emi
