@@ -245,15 +245,38 @@ function show_svg(){
 	myData.options.animation = false;
 
 	var svgContext = C2S(doc.offsetWidth,doc.offsetHeight);
-	// svgContext.width = doc.offsetWidth;
-	// svgContext.height = doc.offsetHeight;
+
 	var mySv = new Chart(svgContext, myData);
 	 
 	let link = document.createElement('a');
-	link.href = 'data:image/svg+xml;utf8,' + encodeURIComponent(svgContext.getSerializedSvg());
-	link.download = filename;
-	link.text = linkText;
+	link.id = 'download-svg';
+	link.setAttribute('href', 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgContext.getSerializedSvg()));
+	link.setAttribute('download', 'svgstats.svg');
+	document.body.appendChild(link);
 	link.click();
+	document.body.removeChild(link);
+	
+}
+
+function to_WebP(){
+	var canvas = document.getElementById("my_Chart");
+	canvas.toBlob((blob) => {
+    
+		// Now we have a `blob` containing webp data
+	
+		// Use the file rename trick to turn it back into a file
+		console.log(blob.type);
+		const myImage = new File([blob], 'my-new-name.webp', { type: blob.type });
+		const imageURL = URL.createObjectURL(myImage);
+		const link = document.createElement('a');
+		link.href = imageURL;
+		link.download = 'image.webp';
+		document.body.appendChild(link);
+		link.click();
+		document.body.removeChild(link);
+
+	
+	  }, 'image/webp');
 }
 function exportData(){
 	var type = document.getElementById("exportSelect").value;
@@ -266,11 +289,17 @@ function exportData(){
 		link.id = 'download-csv'
 		link.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(cont));
 		link.setAttribute('download', 'yourfiletextgoeshere.csv');
+		document.body.appendChild(link);
 		link.click();
+		document.body.removeChild(link);
+		
 		return
 	}
 	if(type === 'SVG'){
 		show_svg();
+	}
+	if(type === 'WebP'){
+		to_WebP();
 	}
 	  
 }
