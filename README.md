@@ -20,6 +20,6 @@ Realizat de :
 - [ ] Attack Page Details @Adi
 - [ ] Admin module @Adi
 ### Done
-- [x] Web service for communication with database @Adi
+- [x] Web service for communication with database @Adi & Emi
 - [x] Database @Adi
 - [x] Statistics @Emi
