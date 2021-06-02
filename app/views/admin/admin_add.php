@@ -24,14 +24,14 @@
         <div class="main">
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
-                <form action="">
+                <form action="<?php echo URL_ROOT; ?>/admin/add_event" method="POST">
+                    <label for="id">Id: </label><input type="text" id="id" name="id" placeholder="Example : 1"><br><br>
                     <label for="year">Year: </label><input type="text" id="year" name="year" placeholder="Example : 1970"><br><br>
-                    <label for="month">Month: </label><input type="text" id="year" name="year" placeholder="Example : 5"><br><br>
-                    <label for="date">Day: </label><input type="text" id="year" name="year" placeholder="Example : 10"><br><br>
+                    <label for="month">Month: </label><input type="text" id="month" name="month" placeholder="Example : 5"><br><br>
+                    <label for="date">Day: </label><input type="text" id="day" name="day" placeholder="Example : 10"><br><br>
                     <label for="extended">Extended: </label><input type="checkbox" name="extended" id="extended"><br><br>
-                    <label for="countryID"><a href="countries.html" target="_blank">Country ID</a> </label><input type="text" name="countryID" id="countryID" placeholder="Please check list of countries IDs"><br><br>
                     <label for="country">Country: </label><input type="text" name="country" id="country" placeholder="Example: Romania"><br><br>
-                    <label for="regionID">Region</label><select name="region" id="region">
+                    <label for="region">Region</label><select name="region" id="region">
                         <option value="1">North America</option>
                         <option value="2">Central America & Caribbean</option>
                         <option value="3">South America</option>
@@ -52,7 +52,7 @@
                     <label for="longitude">Longitude: </label><input type="text" name="Longitude" id="Longitude"><br><br>
                     <label for="specificity">Specificity: </label><input type="text" name="specificity" id="specificity"><br><br>
                     <label for="vicinity">Vicinity: </label><input type="checkbox" name="vicinity" id="vicinity"><br><br>
-                    <label for="summary">Summary: </label><textarea name="summary" id="" cols="30" rows="10"></textarea><br><br>
+                    <label for="summary">Summary: </label><textarea name="summary" id="summary" cols="30" rows="10"></textarea><br><br>
                     <label for="multiple">Multiple: </label><input type="checkbox" name="multiple" id="multiple"><br><br>
                     <label for="succes">Succes: </label><input type="checkbox" name="succes" id="succes"><br><br>
                     <label for="suicide">Suicide: </label><input type="checkbox" name="suicide" id="suicide"><br><br>
@@ -93,7 +93,6 @@
                         <option value="22">Violent political party</option>
                     </select><br><br>
 
-                    <label for="targsubtype"><a href="#">Targ subtypes</a></label><input type="text" name="targsubtype" id="targsubtype" placeholder="Enter here the ID"><br><br>
                     <label for="corp">Corp: </label><input type="text" name="corp" id="corp"><br><br>
                     <label for="target">Target: </label><input type="text" name="target" id="target"><br><br>
                     <label for="nationality"><a href="#">Nationality:</a></label><input type="text" name="nationality" id="nationality" placeholder="Example : Romanian"><br><br>
@@ -120,9 +119,8 @@
                     <label for="nkillus">Number of kills us: </label><input type="text" name="nkillus" id="nkillus"><br><br>
                     <label for="nkillter">Number of killter: </label><input type="text" name="nkillter" id="nkillter"><br><br>
                     <label for="nwounds">Number of wounds: </label><input type="text" name="nwounds" id="nwounds"><br><br>
-                    <label for="nwoundsus">Number of wounds us: </label><input type="text" name="nwoundsus" id="nwoundsus"><br><br>
                     <label for="ishostkid">Is host kid: </label><input type="checkbox" name="ishostkid" id="ishostkid"><br><br>
-                    <label for="notes">Add notes: </label> <textarea name="notes" id="" col s="30" rows="10"></textarea><br><br>
+                    <label for="notes">Add notes: </label> <textarea name="notes" id="notes" col s="30" rows="10"></textarea><br><br>
                     <label for="propextent">Propextent: </label><select name="propextent" id="propextent">
                         <option value="1">Catastrophic (likely >= $1 billion)</option>
                         <option value="2">Major (likely >= $1 million but < $1 billion)</option>

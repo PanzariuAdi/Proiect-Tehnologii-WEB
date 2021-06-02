@@ -22,15 +22,13 @@
         <?php include APP_ROOT . '/views/inc/admin_sidebar.php' ?>
 
         <div class="main">
+
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
-                <form action="">
-                    <label for="title">Title: </label> <input type="text" name="title_article" id=""><br><br>
-                    <label for="description">Description: </label> <textarea name="" id="" cols="30" rows="10"></textarea><br><br>
-                    <label for="tags">Tags: </label> <input type="text" name="tags" id=""><br><br>
-                    <label for="image">Image: </label> <input type="file" name="image" id=""><br><br>
+                <form action="<?php echo URL_ROOT; ?>/admin/add_article" method="POST">
+                    <label for="title">Title: </label> <input type="text" name="title_article" id="title_article"><br><br>
+                    <label for="description">Description: </label> <textarea name="description" id="description" cols="30" rows="10"></textarea><br><br>
                     <input type="submit" value="Add article">
-
                 </form>
             </div>
         </div>

@@ -12,7 +12,7 @@
     <h1>Users and access</h1>
     <div class="leftbox">
         <ul class="sidemenu">
-            <li><a href="<?php echo URL_ROOT; ?>/admin" style="color: crimson;">Admin home page</a></li>
+            <li><a href="<?php echo URL_ROOT; ?>/admin">Admin home page</a></li>
             <li><a href="<?php echo URL_ROOT; ?>/admin/manage">Manage access</a></li>
         </ul>
     </div>

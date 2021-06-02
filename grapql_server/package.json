@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server":"concurrently -k npm:server:*",
+    "server": "concurrently -k npm:server:*",
     "server:statistics": "nodemon statistics.js",
+    "server:admin": "nodemon admin.js",
     "server:index": "nodemon index.js"
   },
   "keywords": [],
@@ -15,9 +16,11 @@
     "@apollo/federation": "^0.25.1",
     "@apollo/gateway": "^0.28.2",
     "apollo-server": "^2.25.0",
+    "concurrently": "^6.2.0",
     "graphql": "^15.5.0",
     "mssql": "^7.1.0",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.7",
     "sql": "^0.78.0"
   }
 }

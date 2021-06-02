@@ -133,6 +133,10 @@ option{
 
   #CasualitiesDD:hover #CasualitiesBTN {background-color: #3e8e41;}
 
+  #Loss_ValueDD:hover #Loss_ValueContent {display: block;}
+
+  #Loss_ValueDD:hover #Loss_ValueBTN {background-color: #3e8e41;}
+  
   #TerroristsDD:hover #TerroristsContent {display: block;}
 
   #TerroristsDD:hover #TerroristsBTN {background-color: #3e8e41;}
@@ -141,15 +145,41 @@ option{
 
   #Ransom_AmmountDD:hover #Ransom_AmmountBTN {background-color: #3e8e41;}
 
+  #RansomDD:hover #RansomContent {display: block;}
+
+  #RansomDD:hover #RansomBTN {background-color: #3e8e41;}
+
+  #Without_RansomDD:hover #Without_RansomContent {display: block;}
+
+  #Without_RansomDD:hover #Without_RansomBTN {background-color: #3e8e41;}
+
+  #Failed_AttacksDD:hover #Failed_AttacksContent {display: block;}
+
+  #Failed_AttacksDD:hover #Failed_AttacksBTN {background-color: #3e8e41;}
+  
+  #Successful_AttacksDD:hover #Successful_AttacksContent {display: block;}
+
+  #Successful_AttacksDD:hover #Successful_AttacksBTN {background-color: #3e8e41;}
+
+  #SuicidesDD:hover #SuicidesContent {display: block;}
+
+  #SuicidesDD:hover #SuicidesBTN {background-color: #3e8e41;}
+  
+  #Without_SuicidesDD:hover #Without_SuicidesContent {display: block;}
+
+  #Without_SuicidesDD:hover #Without_SuicidesBTN {background-color: #3e8e41;}
+
   #WoundedDD:hover #WoundedContent {display: block;}
 
   #WoundedDD:hover #WoundedBTN {background-color: #3e8e41;}
 
-  #Loss_ValueDD:hover #Loss_ValueContent {display: block;}
+  #ExtendedDD:hover #ExtendedContent {display: block;}
 
-  #Loss_ValueDD:hover #Loss_ValueBTN {background-color: #3e8e41;}
+  #ExtendedDD:hover #ExtendedBTN {background-color: #3e8e41;}
 
+  #Not_ExtendedDD:hover #Not_ExtendedContent {display: block;}
 
+  #Not_ExtendedDD:hover #Not_ExtendedBTN {background-color: #3e8e41;}
   
 
   

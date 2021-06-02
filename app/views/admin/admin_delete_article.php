@@ -24,8 +24,8 @@
         <div class="main">
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
-                <form action="">
-                    <label for="id">Choose article by ID: </label><input type="number" name="articleID" id=""><br><br>
+                <form action="<?php echo URL_ROOT; ?>/admin/delete_article" method="POST">
+                    <label for="id">Choose article by ID: </label><input type="number" name="article_id" id="article_id"><br><br>
                     <input type="submit" value="Delete article">
 
                 </form>

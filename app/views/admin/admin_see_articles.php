@@ -10,6 +10,53 @@
     <title>Document</title>
 </head>
 
+<script>
+    loadArticles = async () => {
+        try {   
+            var res = [];
+            var query = 
+                `query {
+                    articles {
+                        article_id
+                        title
+                        description
+                    }
+                }`;
+
+            await fetch('http://localhost:4000/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({query})
+            }).then (r => r.json())
+            .then (data => res = data.data.articles)
+            
+            return res;
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    var myPromise = loadArticles().then(function(result) {
+        var jsondata;
+        var data = JSON.stringify(result);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://localhost/proiect-mvc/admin/articles_redirect", !0);
+        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhr.send(data);
+        
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                jsondata = JSON.parse(xhr.responseText);
+                // console.log(jsondata);
+            }
+        }
+    })
+</script>
+
 <body>
     <div class="mainframe">
         <div class="header">
@@ -21,59 +68,39 @@
         <?php include APP_ROOT . '/views/inc/admin_navbar.php' ?>
         <?php include APP_ROOT . '/views/inc/admin_sidebar.php' ?>
 
+        <?php
+            session_start();
+        ?>
+
         <div class="main">
             <div class="adder">
-                <select name="order" id="">
-                    <option value="1">Order by ID</option>
-                    <option value="2">Order by date</option>                  
-                    <option value="3">Order alphabetical</option>
-                    
-                </select><br><br>
-
                 <select name="" id="">
                     <option value="1">See all articles</option>
                     <option value="2">See one article on ID</option>
                 </select><br><br>
 
-                <table class="tablemain full">
+                <?php if(isset($_SESSION['articles'])) {
+                    $articles = $_SESSION['articles'];
+                } ?>
+
+                <table class="tablemain full" id="articleTable">
+                    <?php foreach($articles as $article) : ?>
                     <tr>
                         <th>ID</th>
+                        <td><?php echo $article['article_id']; ?></td>
+                    </tr>
+                    <tr>
                         <th>Title</th>
-                        <th>Date</th>
-                        <th>Tags</th>
-                    </tr>
-
-                    <tr>
-                        <td>0</td>
-                        <td>Afghanistan war</td>
-                        <td>01.01.2021</td>
-                        <td>#afghanistan #war #ak47</td>
-                    </tr>
-
-                <table class="tablemain">
-                    <tr>
-                        <th>ID</th>
-                        <td>0</td>
-                    </tr>
-
-                    <tr>
-                        <th>Date</th>
-                        <td>1970/07/02</td>
+                        <td><?php echo $article['title']; ?></td>
                     </tr>
 
                     <tr>
                         <th>Description</th>
-                        <td>Karl Armstrong, a member of the New Years Gang, broke into the University of Wisconsin's Primate 
-                            Lab and set a fire on the first floor of the building.  Armstrong intended to set fire to the Madison, 
-                            Wisconsin, United States, Selective Service Headquarters 
-                        </td>
+                        <td><?php echo $article['description']; ?></td>
                     </tr>
 
-                    <tr>
-                        <th>Tags</th>
-                        <td>#afghanistan #war #ak47</td>
-                    </tr>
-
+                    <tr><th><th></th></th></tr>
+                    <?php endforeach; ?>
                 </table>
             </div>
         </div>

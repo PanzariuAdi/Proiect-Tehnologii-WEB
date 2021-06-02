@@ -5,6 +5,9 @@ class searchBar{
 		this.content = []	
 		this.checkedContent = [];
 
+		this.URL = 'http://localhost/proiect-mvc/posts/columns?col=';
+		this.URL = this.URL.concat(this.field);
+
 		let temp = 'searchContent';
 		temp = temp.concat(name)
 		this.searchContent = document.getElementById(temp);
@@ -29,26 +32,9 @@ class searchBar{
 	
 	load= async() =>{
 		try{
-			var res = [];
-			var query = `query{
-				fields(field:"`+this.field+`"){
-				value
-			  }
-			}`;
-			   
-			await fetch('http://localhost:4000/', {
-				method: 'POST',
-				headers: {
-				  'Content-Type': 'application/json',
-				  'Accept': 'application/json',
-				},
-				body: JSON.stringify({
-				  query
-				})
-			  })
-				 .then(r => r.json())
-				 .then(data => res = data.data.fields);
-			this.content = res;
+			
+			const res = await fetch(this.URL);
+			this.content = await res.json();
 			this.display(this.content);
 		}catch(err){
 			console.error(err);
@@ -63,7 +49,7 @@ class searchBar{
 				count++;
 				if(count<10)
 					return `<div>
-						<input type = checkbox id = "${item.value.replace(" ","_")}" value ="${item}" onchange='${this.name}.check("${item.value}")'>
+						<input type = checkbox id = "${item.value.replace(" ","_")}" onchange='${this.name}.check("${item.value.replace(" ","_")}")'>
 						${item.value}
 					</div>
 					`
@@ -71,7 +57,7 @@ class searchBar{
 		}).join('');
 		htmlString = htmlString.concat(this.checkedContent.map((item)=>{
 			return `<div>
-						<input type = checkbox id = "${item.replace(" ","_")}" value ="${item}" onchange='${this.name}.check("${item.replace(" ","_")}")' checked>
+						<input type = checkbox id = "${item.replace(" ","_")}" onchange='${this.name}.check("${item.replace(" ","_")}")' checked>
 						${item}
 					</div>
 					`
@@ -87,6 +73,7 @@ class searchBar{
 		else{
 			this.checkedContent.splice(index,1);
 		}	
+	
 	};
 };
 
@@ -129,30 +116,6 @@ year.load();
 const month = new searchBar('imonth','month');
 month.load();
 
-function lowerBoundChange(type){
-	var checked = document.getElementById(type.concat('LowerCheck')).checked;
-	var result;
-	if(checked){
-		result='block';
-	}
-	else{
-		result='none';
-	}
-
-	document.getElementById(type.concat('LowerValueDiv')).style.display=result;
-}
-function upperBoundChange(type){
-	var checked = document.getElementById(type.concat('UpperCheck')).checked;
-	var result;
-	if(checked){
-		result='block';
-	}
-	else{
-		result='none';
-	}
-
-	document.getElementById(type.concat('UpperValueDiv')).style.display=result;
-}
 
 
 

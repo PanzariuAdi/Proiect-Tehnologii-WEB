@@ -27,25 +27,23 @@
             </div>
 
             <div class = "dropContainer">
-                <select name = "XAXISForm" id="XAXISForm" >
+                <select name = "XAXISForm" id="XAXISForm" onchange="syncData()">
                     <?php foreach(selectable as $val) echo '<option value = "'.selectableMap[$val].'">'.$val.'</option>';?>
                 </select>    
             </div>
 
             <div class = "dropContainer">
-                <select name = "YAXISForm" id="YAXISForm">
-                    <?php foreach(YAXIS as $val) echo '<option value = "'.YAXISMap[$val].'">'.$val.'</option>';?>
+                <select name = "YAXISForm" id="YAXISForm" onchange="syncData()">
+                    <?php foreach(YAXIS as $val) echo '<option>'.$val.'</option>';?>
                 </select>    
             </div>
-            <div class = "dropContainer">
-                <input id = "submit" type ="button" onclick="syncData()" value = "submit">
-            </div>    
+
             <div class="dropContainer">
                 Filters XAXIS
             </div>
 
             <div class = "dropContainer">
-                <select name = "firstOrLastN" id = "firstOrLastN" onchange="updateData()">
+                <select name = "firstOrLastN">
                     <option>First values</option>
                     <option>Last values</option>
                 </select>   
@@ -53,7 +51,7 @@
 
             <div class = "dropContainer">
                 <label for = "nval"> First/Last n:</label>
-                <input type = "number" id = "nval" name = "nval" value ="10" onchange="updateData()">
+                <input type = "number" id = "nval" name = "nval" value ="10">
             </div>
 
              <?php foreach(selectable as $item){ 
@@ -82,65 +80,31 @@
             <div class = "dropContainer">
                 Filters YAXIS
             </div> 
-            <div class = "dropContainer">
-                <label>Suicide</label>
-                <select id = "suicideForm">
-                    <option selected>None</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>    
-            </div>    
 
-            <div class = "dropContainer">
-                <label>Extended</label>
-                <select id = "extendedForm">
-                    <option selected>None</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>    
-            </div>    
-
-            <div class = "dropContainer">
-                <label>Ransom</label>
-                <select id = "ransomForm">
-                    <option>None</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>    
-            </div>    
-
-            <div class = "dropContainer">
-                <label>Success</label>
-                <select id = "successForm">
-                    <option selected>None</option>
-                    <option>Yes</option>
-                    <option>No</option>
-                </select>    
-            </div>    
 
             <?php
             foreach(YAXIS as $item){
                 echo'
                 <div class = "dropContainer">
-                <div class = "dropdown" id = "'.str_replace(' ', '_', $item).'DD">
-                    <button class = "dropbtn" id = "'.str_replace(' ', '_', $item).'BTN">'.$item.'</button>
-                    <div class = "dropdown-content" id = "'.str_replace(' ', '_', $item).'Content">    
+                <div class = "dropdown" id = "'.$item.'DD">
+                    <button class = "dropbtn" id = "'.$item.'BTN">'.$item.'</button>
+                    <div class = "dropdown-content" id = "'.$item.'Content">    
                         <div class ="gridYAXIS">
                             <div>
                                 <label>Lower Bound</label>
-                                <input type = "checkbox" name = "'.$item.'LowerCheck" id="'.str_replace(' ', '_', $item).'LowerCheck" onchange="lowerBoundChange(\''.str_replace(' ', '_', $item).'\')">
+                                <input type = "checkbox" name = "'.$item.'LowerCheck" id="'.$item.'LowerCheck" onchange="lowerBoundChange(\''.$item.'\')">
                             </div>
-                            <div id = "'.str_replace(' ', '_', $item).'LowerValueDiv" class = "templateLowerValueDiv">
+                            <div id = "'.$item.'LowerValueDiv" class = "templateLowerValueDiv">
                                 <label>value</label>
-                                <input type = "number" name="'.$item.'LowerValue" id ="'.str_replace(' ', '_', $item).'LowerValue" value = "0" >
+                                <input type = "number" name="AttackLowerValue" id ="AttackLowerValue" value = "0" >
                             </div>      
                             <div>
                                 <label>Upper Bound</label>
-                                <input type = "checkbox" name = "'.$item.'UpperCheck" id="'.str_replace(' ', '_', $item).'UpperCheck" onchange="upperBoundChange(\''.str_replace(' ', '_', $item).'\')">
+                                <input type = "checkbox" name = "'.$item.'UpperCheck" id="'.$item.'UpperCheck" onchange="upperBoundChange(\''.$item.'\')">
                             </div>
-                            <div id ="'.str_replace(' ', '_', $item).'UpperValueDiv" class ="templateUpperValueDiv">
+                            <div id ="'.$item.'UpperValueDiv" class ="templateUpperValueDiv">
                                 <label>value</label>
-                                <input type = "number" name="'.$item.'UpperValue" id="'.str_replace(' ', '_', $item).'UpperValue" value = "10" >
+                                <input type = "number" name="'.$item.'UpperValue" id="'.$item.'UpperValue" value = "10" >
                             </div>
 
                         </div>    
@@ -160,8 +124,8 @@
             <canvas id="my_Chart"></canvas>
     </div>
 
-<script src="<?php echo URL_ROOT; ?>/javascript/statistics/filters.js"></script>   
+
 <script src="<?php echo URL_ROOT; ?>/javascript/statistics/script.js"></script>
- 
+<script src="<?php echo URL_ROOT; ?>/javascript/statistics/filters.js"></script>
 </body> 
 </html>

@@ -24,8 +24,8 @@
         <div class="main">
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
-                <form action="">
-                    <label for="chooseEvent">Choose event : </label><input type="number" name="chooser" id=""><br><br>
+                <form action="<?php echo URL_ROOT; ?>/admin/delete_event" method="POST">
+                    <label for="chooseEvent">Choose event : </label><input type="number" name="attackid" id="attackid"><br><br>
                     <input type="submit" value="Delete event">
                 </form>
             </div>

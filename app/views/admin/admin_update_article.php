@@ -24,18 +24,14 @@
         <div class="main">
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
-                <form action="">
-                    <label for="id">Choose article by ID: </label><input type="number" name="articleID" id=""><br><br>
-                    <label for="title">Title: </label> <input type="text" name="title_article" id=""><br><br>
-                    <label for="description">Description: </label> <textarea name="" id="" cols="30" rows="10"></textarea><br><br>
-                    <label for="tags">Tags: </label> <input type="text" name="tags" id=""><br><br>
-                    <label for="image">Image: </label> <input type="file" name="image" id=""><br><br>
+                <form action="<?php echo URL_ROOT; ?>/admin/update_article" method="POST">
+                    <label for="id">Choose article by ID: </label><input type="number" name="article_id" id="article_id"><br><br>
+                    <label for="title">Title: </label> <input type="text" name="article_title" id="article_title"><br><br>
+                    <label for="description">Description: </label> <textarea name="article_description" id="article_description" cols="30" rows="10"></textarea><br><br>
                     <input type="submit" value="Update article">
-
                 </form>
             </div>
         </div>
-
     </div>
 </body> 
 </html>
