@@ -15,7 +15,6 @@
 
 <header>
     <?php include APP_ROOT . '/views/inc/navbar.php'; ?>
-    <!-- <?php echo $data['country']; ?> -->
 </header>   
 
 <body>
@@ -23,7 +22,7 @@
         <button class="dropbtn" id = "settingsBTN">Settings</button>
         <div class="dropdown-content" id = "settingsContent">
             <div class = "dropContainer">
-            <select name = "graphForm" id="graphForm" onchange="updateChartType()">
+            <select name = "graphForm" id="graphForm" onchange="updateData  ()">
                 <?php foreach(CHARTS as $val) echo '<option>'.$val.'</option>';?>
             </select>
             </div>
@@ -157,7 +156,12 @@
                 Export
             </div>
             <div class = "dropContainer">
-
+            <select id = "exportSelect">
+                <option>CSV</option>
+                <option>WebP</option>
+                <option>SVG</option>
+            </select>
+            <input type = "button" value = "Export" onclick="exportData()">
             </div>
         </div>
       </div>
@@ -166,15 +170,9 @@
     <div id="test" class="container">
             <canvas id="my_Chart"></canvas>
     </div>
-    <canvas id ="radarCanvas"></canvas>
-    <select id = "exportSelect">
-                <option>CSV</option>
-                <option>WebP</option>
-                <option>SVG</option>
-            </select>
-            <input type = "button" value = "Export" onclick="exportData()">
-<script src="<?php echo URL_ROOT; ?>/javascript/statistics/script2.js"></script>   
+
 <script src="<?php echo URL_ROOT; ?>/javascript/statistics/filters.js"></script>   
+<script src="<?php echo URL_ROOT; ?>/javascript/statistics/utility/utility.js"></script>  
 <script src="<?php echo URL_ROOT; ?>/javascript/statistics/script.js"></script>
 
  
