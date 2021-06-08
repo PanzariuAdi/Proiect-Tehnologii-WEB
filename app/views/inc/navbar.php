@@ -5,6 +5,7 @@
         <li><a href="<?php echo URL_ROOT; ?>/pages/details">Details</a></li>
         <li><a href="<?php echo URL_ROOT; ?>/pages/map">Map</a></li>
         <li><a href="<?php echo URL_ROOT; ?>/pages/raport">Raport</a></li>
+        <li><a href="<?php echo URL_ROOT; ?>/pages/advancedSearch">🔍</a></li>
         
         <?php session_start();
               if(!isset($_SESSION['user_id'])) :  ?>

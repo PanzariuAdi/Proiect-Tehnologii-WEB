@@ -113,8 +113,16 @@
             </div>    
         </div>
       </div>
+      <div id = "buttons">
+            <input type = "button" id="prevPage" value = "Previous">
+            <div id="nxtbtn">
+                <input type = "button" id="nextPage" value = "Next">
+            </div>
+        </div>
         <div id = "searchWrapper">
+            Please wait....
         </div>    
+        
       <script type = "module" src="<?php echo URL_ROOT; ?>/javascript/advancedSearch/main.js"></script>
 </body> 
 </html>

@@ -9,17 +9,26 @@ var boundSearch = [new boundedSearch("casualities","Casualities","casualities"),
 var boolSearch = [new booleanSearch("suicide"),new booleanSearch("extended"),new booleanSearch("ransom"),new booleanSearch("success")];
 
 var myData = [];
+var page = 1;
+
 
 function display(){
 	var data_to_display = "";
-
-	for(var i = 0;i<=11;i++){
+	for(var i = 20*(page-1);i<=20*page;i++){
+		var description;
+		if(myData[i].summary==="")
+			description = "N/A";
+		else
+			description = myData[i].summary;	
 		data_to_display = data_to_display +
 		 `<div class="searchGrid">
-		 	<h3>${myData[i].country}</h3>
+		 	<h3>${myData[i].country}, ${myData[i].city}, ${myData[i].year}</h3>
+			 <h4>Description: ${description}</h4>
+			 <a href="http://localhost/proiect-mvc/pages/attackPageTemplate">More</a>
 		 </div>
 		 `
 	}
+	console.log(i);
 	document.getElementById("searchWrapper").innerHTML = data_to_display;
 }
 
@@ -39,6 +48,9 @@ const syncData = async()=>{
 				
 				ID
 				country
+				city
+				summary
+				year
 			}
 		}`;
 		console.log(query);
@@ -55,7 +67,6 @@ const syncData = async()=>{
 				.then(r => r.json())
 				.then(data => myData = data.data.search);
 
-		console.log(myData);
 	}catch(err){
 		console.error(err);
 	}
@@ -74,3 +85,5 @@ document.getElementById("settingsBTN").addEventListener("click",(e)=>{
 })
 
 document.getElementById("submit").addEventListener("click",(e)=>{syncData()});
+document.getElementById("nextPage").addEventListener("click",(e)=>{if(20*(page-1)<myData.length-1){page++;display();scroll(0,0);}})
+document.getElementById("prevPage").addEventListener("click",(e)=>{page--;display();scroll(0,0);})
