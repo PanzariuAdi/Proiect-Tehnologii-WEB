@@ -11,15 +11,14 @@ Realizat de :
   
   
 ### TODO
-
-
+- [ ] Admin module @Adi
+- [ ] Attack Page Details @Adi
+- [ ] Statistics @Emi
 - [ ] Advanced Search @Andrei
 - [ ] Maps page @Andrei
 
 ### DOING
-- [ ] Attack Page Details @Adi
-- [ ] Admin module @Adi
+- [ ] Web service for communication with database @Adi
+
 ### Done
-- [x] Web service for communication with database @Adi & Emi
 - [x] Database @Adi
-- [x] Statistics @Emi

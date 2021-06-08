@@ -170,4 +170,53 @@ function create_boolean(args){
     }
     return boolean_queries
 }
-   module.exports = {create_between,create_in,create_boolean};
+function create_betweenSearch(args,c){
+    var between_queries = []
+
+     if(typeof args.casualitiesUB !=='undefined' && typeof args.casualitiesLB !=='undefined')
+         between_queries.push("nkill BETWEEN " + c.escape(args.casualitiesLB) + " AND " + c.escape(args.casualitiesUB)) 
+     else
+         if(typeof args.casualitiesLB !=='undefined' && typeof args.casualitiesUB =='undefined')
+             between_queries.push("nkill >" + c.escape(args.casualitiesLB));
+             else
+                 if(typeof args.casualitiesUB !=='undefined' && typeof args.casualitiesLB =='undefined')
+                     between_queries.push("nkill <" + c.escape(args.casualitiesUB));
+                   
+     if(typeof args.woundedUB !=='undefined' &&  typeof args.woundedLB !=='undefined')
+         between_queries.push("nwound BETWEEN " + c.escape(args.woundedLB) + " AND " + c.escape(args.woundedUB)) 
+     else
+         if(typeof args.woundedLB !=='undefined' && typeof args.woundedUB =='undefined')
+             between_queries.push("nwound >" + c.escape(args.woundedLB));
+             else
+                 if(typeof args.woundedUB !=='undefined' && typeof args.woundedLB =='undefined')
+                     between_queries.push("nwound <" + c.escape(args.woundedUB));
+
+     if(typeof args.lossUB !=='undefined' && typeof args.lossLB !=='undefined')
+         between_queries.push("propvalue BETWEEN " + c.escape(args.lossLB) + " AND " + c.escape(args.lossUB)) 
+     else
+         if(typeof args.lossLB !=='undefined' && typeof args.lossUB =='undefined')
+             between_queries.push("propvalue >" + c.escape(args.lossLB));
+             else
+                 if(typeof args.lossUB !=='undefined' && typeof args.lossLB =='undefined')
+                     between_queries.push("propvalue <" + c.escape(args.lossUB));
+
+     if(typeof args.ransomUB !=='undefined' && typeof args.ransomLB !=='undefined')
+         between_queries.push("ransomamt BETWEEN " + c.escape(args.ransomLB) + " AND " + c.escape(args.ransomUB)) 
+     else
+         if(typeof args.ransomLB !=='undefined' && typeof args.ransomUB =='undefined')
+             between_queries.push("ransomamt >" + c.escape(args.ransomLB));
+             else
+                 if(typeof args.ransomUB !=='undefined' && typeof args.ransomLB =='undefined')
+                     between_queries.push("ransomamt <" + c.escape(args.ransomUB));
+
+     if(typeof args.terroristUB !=='undefined' && typeof args.terroristLB !=='undefined')
+         between_queries.push("nperps BETWEEN " + c.escape(args.terroristLB) + " AND " + c.escape(args.terroristUB)) 
+     else
+         if(typeof args.terroristLB !=='undefined' && typeof args.terroristUB =='undefined')
+             between_queries.push("nperps >" + c.escape(args.terroristLB));
+             else
+                 if(typeof args.terroristUB !=='undefined' && typeof args.terroristLB =='undefined')
+                     between_queries.push("nperps <" + c.escape(args.terroristUB));
+    return between_queries;
+}
+   module.exports = {create_between,create_in,create_boolean,create_betweenSearch};

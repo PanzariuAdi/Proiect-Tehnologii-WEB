@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="<?php echo URL_ROOT; ?>/css/statisticsStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
     <script src="<?php echo URL_ROOT; ?>/javascript/statistics/canvas2svg.js"></script>
-
-
     <title>Document</title>
 </head>
 
@@ -22,7 +20,7 @@
         <button class="dropbtn" id = "settingsBTN">Settings</button>
         <div class="dropdown-content" id = "settingsContent">
             <div class = "dropContainer">
-            <select name = "graphForm" id="graphForm" onchange="updateData  ()">
+            <select name = "graphForm" id="graphForm">
                 <?php foreach(CHARTS as $val) echo '<option>'.$val.'</option>';?>
             </select>
             </div>
@@ -39,14 +37,14 @@
                 </select>    
             </div>
             <div class = "dropContainer">
-                <input id = "submit" type ="button" onclick="syncData()" value = "submit">
+                <input id = "submit" type ="button" value = "submit">
             </div>    
             <div class="dropContainer">
                 Filters XAXIS
             </div>
 
             <div class = "dropContainer">
-                <select name = "firstOrLastN" id = "firstOrLastN" onchange="updateData()">
+                <select name = "firstOrLastN" id = "firstOrLastN">
                     <option>First values</option>
                     <option>Last values</option>
                 </select>   
@@ -54,7 +52,7 @@
 
             <div class = "dropContainer">
                 <label for = "nval"> First/Last n:</label>
-                <input type = "number" id = "nval" name = "nval" value ="10" onchange="updateData()">
+                <input type = "number" id = "nval" name = "nval" value ="10">
             </div>
 
              <?php foreach(selectable as $item){ 
@@ -129,7 +127,7 @@
                         <div class ="gridYAXIS">
                             <div>
                                 <label>Lower Bound</label>
-                                <input type = "checkbox" name = "'.$item.'LowerCheck" id="'.str_replace(' ', '_', $item).'LowerCheck" onchange="lowerBoundChange(\''.str_replace(' ', '_', $item).'\')">
+                                <input type = "checkbox" name = "'.$item.'LowerCheck" id="'.str_replace(' ', '_', $item).'LowerCheck" >
                             </div>
                             <div id = "'.str_replace(' ', '_', $item).'LowerValueDiv" class = "templateLowerValueDiv">
                                 <label>value</label>
@@ -137,7 +135,7 @@
                             </div>      
                             <div>
                                 <label>Upper Bound</label>
-                                <input type = "checkbox" name = "'.$item.'UpperCheck" id="'.str_replace(' ', '_', $item).'UpperCheck" onchange="upperBoundChange(\''.str_replace(' ', '_', $item).'\')">
+                                <input type = "checkbox" name = "'.$item.'UpperCheck" id="'.str_replace(' ', '_', $item).'UpperCheck">
                             </div>
                             <div id ="'.str_replace(' ', '_', $item).'UpperValueDiv" class ="templateUpperValueDiv">
                                 <label>value</label>
@@ -161,7 +159,7 @@
                 <option>WebP</option>
                 <option>SVG</option>
             </select>
-            <input type = "button" value = "Export" onclick="exportData()">
+            <input type = "button" id="export" value = "Export">
             </div>
         </div>
       </div>
@@ -171,10 +169,6 @@
             <canvas id="my_Chart"></canvas>
     </div>
 
-<script src="<?php echo URL_ROOT; ?>/javascript/statistics/filters.js"></script>   
-<script src="<?php echo URL_ROOT; ?>/javascript/statistics/utility/utility.js"></script>  
-<script src="<?php echo URL_ROOT; ?>/javascript/statistics/script.js"></script>
-
- 
+<script type = "module" src="<?php echo URL_ROOT; ?>/javascript/statistics/script.js"></script>
 </body> 
 </html>

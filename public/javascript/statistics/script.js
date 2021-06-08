@@ -1,8 +1,20 @@
+import {searchBar} from '../utility/filters.js';
+import {to_csv,to_svg,to_WebP,generateColor} from '../utility/utility.js';
+import {boundedSearch} from '../utility/boundedSearch.js';
+import {booleanSearch} from '../utility/booleanSearch.js';
+
+var searchBars = [new searchBar('country_txt','country','countries'),new searchBar('region_txt','region','regions'),new searchBar('motive','motive','motives'),new searchBar('city','city','cities'),new searchBar('provstate','state','states'),new searchBar('gname','gang','gangs'),new searchBar('attacktype1_txt','attackType','attackTypes'),new searchBar('natlty1_txt','targetNatality','targetNatalities'),new searchBar('weaptype1_txt','weaponType','wepTypes'),new searchBar('weapsubtype1_txt','weaponSubtype','wepSubtypes'),new searchBar('propextent_txt','lossExtent','lossExtents'),new searchBar('iyear','year','years'),new searchBar('imonth','month','months')];
+
+searchBars.forEach(e=>{e.load();});
+
+var boundSearch = [new boundedSearch("attacks","Attacks","attack"),new boundedSearch("casualities","Casualities","casualities"),new boundedSearch("wounded","Wounded","wounded"),new boundedSearch("Loss_Value","Loss_Value","loss"),new boundedSearch("Ransom_Ammount","Ransom_Ammount","ransom"),new boundedSearch("Terrorists","Terrorists","terrorist")];
+
+var boolSearch = [new booleanSearch("suicide"),new booleanSearch("extended"),new booleanSearch("ransom"),new booleanSearch("success")];
 var myData = [];
 var content = [];
 var Labels = [];
 var Values = [];
-var Colors = [];	
+var Colors = [];
 
 var ctx = document.getElementById('my_Chart').getContext('2d');
 var myChart;
@@ -17,7 +29,6 @@ var myChart = new Chart(ctx, {
 	},
 });
 
-			
 
 function updateChartType() {
 	myChart.destroy();
@@ -76,13 +87,16 @@ const syncData = async()=>{
 		var yaxisVal = doc2.value;
 
 		var res = [];
-		var xaxisFilters = create_XFilters();
-		var yaxisFilters = create_YFilters();
+		var xaxisFilters = searchBars.map(e=>{return e.create_Query()}).join("");
+		var yaxisFilters = boundSearch.map(e=>{return e.create_Query()}	).join("");
+		var boolFilters = boolSearch.map(e=>{return e.create_Query()}).join("");
 
 		var query = `query{
 			statistics(xaxis:"`+xaxisVal+`",yaxis:"`+yaxisVal+`",
-			`+ xaxisFilters+
-			  yaxisFilters.join(",") +`){
+			` +xaxisFilters
+			  +yaxisFilters
+			  +boolFilters
+			  +`){
 				
 				field
 				value
@@ -123,10 +137,10 @@ const syncData = async()=>{
 function exportData(){
 	var type = document.getElementById("exportSelect").value;
 	if(type === 'CSV'){
-		to_csv();
+		to_csv(Labels,Values);
 	}
 	if(type === 'SVG'){
-		to_svg();
+		to_svg(myData);
 	}
 	if(type === 'WebP'){
 		to_WebP();
@@ -135,3 +149,16 @@ function exportData(){
 }
 syncData();
 
+document.getElementById("settingsBTN").addEventListener("click",(e)=>{
+	var doc = document.getElementById("settingsContent");
+	if(doc.style.display==='block'){
+		doc.style.display='none';
+	}
+	else
+		doc.style.display='block';
+});
+document.getElementById("export").addEventListener("click",(e)=>{exportData()});
+document.getElementById("submit").addEventListener("click",(e)=>{syncData()});
+document.getElementById("graphForm").addEventListener("change",(e)=>{updateData()});
+document.getElementById("firstOrLastN").addEventListener("change",(e)=>{updateData()});
+document.getElementById("nval").addEventListener("input",(e)=>{updateData()});

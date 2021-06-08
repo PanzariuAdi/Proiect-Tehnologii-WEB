@@ -1,0 +1,12 @@
+#searchWrapper{
+    display: grid;
+    grid-template-columns: auto  auto auto;
+    column-gap: 2em;
+    row-gap: 2em;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+.searchGrid{
+    background-color: #F0FFFF;
+    outline: thick solid #F5F5DC;
+}

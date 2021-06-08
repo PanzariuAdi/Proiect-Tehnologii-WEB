@@ -35,9 +35,6 @@
 
         public function statistics() {
             $data['title'] = 'statistics';       
-            foreach(selectable as $item)
-                //$data[$item] = file_get_contents('http://localhost/proiect-mvc/posts/columns?col='.selectableMap[$item]);
-                //$data[$item] = $this->userModel->getColumn(selectableMap[$item]);
             $this->view('pages/statistics', $data);
         }
 
@@ -46,6 +43,12 @@
                 'title' => 'raport'
             ];
             $this->view('pages/raport', $data);
+        }
+        public function advancedSearch() {
+            $data = [
+                'title' => 'Advanced_Search'
+            ];
+            $this->view('pages/advancedSearch', $data);
         }
 
     }

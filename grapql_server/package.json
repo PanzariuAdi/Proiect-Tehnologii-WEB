@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "server": "concurrently -k npm:server:*",
+    "server:advancedSearch": "nodemon advancedSearch.js",
     "server:statistics": "nodemon statistics.js",
     "server:admin": "nodemon admin.js",
     "server:index": "nodemon index.js"

@@ -69,7 +69,7 @@ option{
     grid-template-columns: auto auto ;
   }
   
-  #settingsDD:hover #settingsContent {display: block;}
+  /* #settingsDD:hover #settingsContent {display: block;} */
 
   #settingsDD:hover #settingsBTN {background-color: #3e8e41;}
 

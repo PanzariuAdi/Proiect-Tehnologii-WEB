@@ -32,13 +32,13 @@ const  typeDefs = gql`
     `;
     
 
-    function getData(args){
+    async function getData(args){
         return new Promise(function(resolve,reject){
         var query;
-        var in_queries = myLib.create_in(args);
+        var in_queries = myLib.create_in(args,c);
         
             
-        var between_queries_arr = myLib.create_between(args);
+        var between_queries_arr = myLib.create_between(args,c);
         var between_queries;
         if(between_queries_arr.length>0)
             between_queries = "HAVING " + between_queries_arr.join(" AND ");
@@ -46,14 +46,14 @@ const  typeDefs = gql`
             between_queries = "";
         }     
 
-        var boolean_queries = myLib.create_boolean(args);
+        var boolean_queries = myLib.create_boolean(args,c);
 
         switch(args.yaxis){
             case 'attacks':
-                query = "SELECT DISTINCT "+args.xaxis+" as field, count(*) as value FROM terrorism WHERE lower("+args.xaxis+") not like '%unknown%' and "+args.xaxis+" not like '' "+in_queries.join(" ")+" "+boolean_queries.join(" ")+" group by "+args.xaxis+" "+between_queries+" order by count(*) desc ";
+                query = "SELECT DISTINCT "+c.escapeId(args.xaxis)+" as field, count(*) as value FROM terrorism WHERE lower("+c.escapeId(args.xaxis)+") not like '%unknown%' and "+c.escapeId(args.xaxis)+" not like '' "+in_queries.join(" ")+" "+boolean_queries.join(" ")+" group by "+c.escapeId(args.xaxis)+" "+between_queries+" order by count(*) desc ";
                 break; 
             default:
-                query = "SELECT DISTINCT "+args.xaxis+" as field, SUM("+args.yaxis+") as value FROM terrorism WHERE lower("+args.xaxis+") not like '%unknown%' and "+args.xaxis+" not like ''"+in_queries.join(" ")+" "+ between_queries+" "+boolean_queries.join(" ")+" group by "+args.xaxis+"  order by SUM("+args.yaxis+") desc ";
+                query = "SELECT DISTINCT "+c.escapeId(args.xaxis)+" as field, SUM("+c.escapeId(args.yaxis)+") as value FROM terrorism WHERE lower("+c.escapeId(args.xaxis)+") not like '%unknown%' and "+c.escapeId(args.xaxis)+" not like ''"+in_queries.join(" ")+" "+ between_queries+" "+boolean_queries.join(" ")+" group by "+c.escapeId(args.xaxis)+"  order by SUM("+c.escapeId(args.yaxis)+") desc ";
                 break;         
                   
         }
@@ -69,16 +69,16 @@ const  typeDefs = gql`
 const resolvers = {
     Query: {
         fields:(_,args)=>{
-            return new Promise(function(resolve,reject){
-                c.query("SELECT DISTINCT " + args.field + " as value FROM terrorism", function (err, result, fields) {
+          return new Promise(function(resolve,reject){
+                c.query("SELECT DISTINCT " + c.escapeId(args.field) + " as value FROM terrorism WHERE "+c.escapeId(args.field)+" not like ''", function (err, result, fields) {
                     if (err)
-                        reject({name:"error: " + err.message});
+                        resolve({name:"error: " + err.message});
                     resolve(result);
                 }); 
-            });
+            })
         },
         statistics: (_,args) =>{
-            return getData(args);
+             return getData(args);
         }
     },
 };
