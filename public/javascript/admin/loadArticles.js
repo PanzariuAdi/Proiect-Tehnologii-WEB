@@ -1,5 +1,3 @@
-alert("Esti un bou");
-
 loadArticles = async () => {
     try {   
         var res = [];
