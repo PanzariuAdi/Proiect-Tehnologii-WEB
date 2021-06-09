@@ -4,6 +4,10 @@
 
         public function index() {
             $this->view('admin/admin');
+            session_start();
+            $_SESSION['leftLimit'] = 0;
+            $_SESSION['step'] = 5;
+            $_SESSION['rightLimit'] = $_SESSION['leftLimit'] + $_SESSION['step'];
         }
 
         public function add_event() {
@@ -125,7 +129,7 @@
                         try {
                             var query = `
                                 mutation {
-                                    deleteAttack (eventid: ${id})
+                                    deleteAttack (id: ${id})
                                 }`;
 
                                 fetch('http://localhost:4000/', {
@@ -152,17 +156,17 @@
                 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
                 ?>
                 <script>
-                    var eventid = <?php if(isset($_POST['id'])) { echo $_POST['id']; } else { echo 1; } ?>;
-                    var iyear = <?php if(isset($_POST['year'])) { echo $_POST['year']; } else { echo 0; } ?>;
-                    var imonth = <?php if(isset($_POST['month'])) { echo $_POST['month']; } else { echo 0; } ?>;
-                    var day = <?php if(isset($_POST['day'])) { echo $_POST['day']; } else { echo 0; } ?>;
+                    var id = <?php if(isset($_POST['id']) && $_POST['id'] != null) { echo $_POST['id']; } else { echo 1; } ?>;
+                    var iyear = <?php if(isset($_POST['year']) && $_POST['year'] != null) { echo $_POST['year']; } else { echo 0; } ?>;
+                    var imonth = <?php if(isset($_POST['month']) && $_POST['month'] != null) { echo $_POST['month']; } else { echo 0; } ?>;
+                    var day = <?php if(isset($_POST['day']) && $_POST['day'] != null) { echo $_POST['day']; } else { echo 0; } ?>;
                     var extented = <?php if(isset($_POST['extended'])) { echo $_POST['extended']; } else { echo 0; } ?>;
                     var country = "<?php echo $_POST['country']; ?>";
                     var region = "<?php echo $_POST['region']; ?>";
                     var state = "<?php echo $_POST['state']; ?>";
                     var city = "<?php echo $_POST['city']; ?>";
-                    var latitude = <?php if(isset($_POST['latitude'])) { echo $_POST['latitude']; } else { echo 0; }?>;
-                    var longitude = <?php if(isset($_POST['longitude'])) { echo $_POST['longitude']; } else { echo 0; }?>;
+                    var latitude = <?php if(isset($_POST['latitude']) && $_POST['latitude'] != null) { echo $_POST['latitude']; } else { echo 0; }?>;
+                    var longitude = <?php if(isset($_POST['longitude']) && $_POST['longitude'] != null) { echo $_POST['longitude']; } else { echo 0; }?>;
                     var specificity = <?php if(isset($_POST['specificity'])) { echo $_POST['specificity']; } else { echo 0; }?>;
                     var vicinity = <?php if(isset($_POST['vicinity'])) { echo $_POST['vicinity']; } else { echo 0; }?>;
                     var summary = "<?php echo $_POST['summary']; ?>";
@@ -179,10 +183,10 @@
                     var claimed = "<?php echo $_POST['claimed']; ?>";
                     var wptype = "<?php echo $_POST['wptype']; ?>";
                     var wpdetail = "<?php echo $_POST['wpdetail']; ?>";
-                    var nkill = <?php if(isset($_POST['nkill'])) { echo $_POST['nkill']; } else { echo 0; } ?>;
+                    var nkill = <?php if(isset($_POST['nkill']) && $_POST['nkill'] != null) { echo $_POST['nkill']; } else { echo 0; } ?>;
                     var nkillus = "<?php echo $_POST['nkillus']; ?>";
                     var nkillter = "<?php echo $_POST['nkillter']; ?>";
-                    var nwounds = <?php if(isset($_POST['nwounds'])) { echo $_POST['nwounds']; } else { echo 0; } ?>;
+                    var nwounds = <?php if(isset($_POST['nwounds']) && $_POST['nwounds'] != null) { echo $_POST['nwounds']; } else { echo 0; } ?>;
                     var ishostkid = <?php if(isset($_POST['ishostkid'])) { echo $_POST['ishostkid']; } else { echo 0; } ?>;
                     var addnotes = "<?php echo $_POST['notes']; ?>";
                     var propextent = "<?php echo $_POST['propextent']; ?>";
@@ -194,7 +198,7 @@
                             var query = `
                                 mutation {
                                     updateAttack (
-                                        eventid: ${id}
+                                        id: ${id}
                                         iyear: ${year}
                                         imonth: ${month}
                                         iday: ${day}    
@@ -245,7 +249,7 @@
                         }
                     }
 
-                    updateAttack(eventid, iyear, imonth, day, extented, country, region, state, city, latitude, longitude, specificity, vicinity, summary, multiple, 
+                    updateAttack(id, iyear, imonth, day, extented, country, region, state, city, latitude, longitude, specificity, vicinity, summary, multiple, 
                     succes, suicide, attacktype, targtype, corp, target, nationality, gname, motive, claimed, wptype, wpdetail, nkill, nkillus, nkillter, nwounds, 
                     ishostkid, addnotes, propextent);
                 </script>
@@ -392,6 +396,12 @@
 
         public function see_events() {
             $this->view('admin/admin_events');
+        }
+        public function see_event() {
+            $this->view('admin/admin_event');
+            if($_SERVER['REQUEST_METHOD'] == 'GET') {
+                $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+            }
         }
       }
 ?>
