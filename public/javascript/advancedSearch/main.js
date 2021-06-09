@@ -24,7 +24,7 @@ function display(){
 		 `<div class="searchGrid">
 		 	<h3>${myData[i].country}, ${myData[i].city}, ${myData[i].year}</h3>
 			 <h4>Description: ${description}</h4>
-			 <a href="http://localhost/proiect-mvc/pages/attackPageTemplate">More</a>
+			 <a href="http://localhost/proiect-mvc/pages/attackPageTemplate?id=${myData[i].ID}">More</a>
 		 </div>
 		 `
 	}

@@ -34,7 +34,7 @@ const  typeDefs = gql`
             attacktype1_txt: String
             targtype1_txt: String
             corp: String
-            target: String
+            target1: String
             natlty1_txt: String
             gname: String
             motive: String

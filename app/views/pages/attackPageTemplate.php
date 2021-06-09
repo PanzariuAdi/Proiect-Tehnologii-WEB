@@ -11,8 +11,95 @@
     <?php include APP_ROOT . '/views/inc/navbar.php'; ?>
 </header>   
 
+<body>
+    <div class="grid">
+        <div class="map">
+            <img class="image" src="<?php echo URL_ROOT; ?>/images/map.png">
+        </div>
+        <div class="date">
+            <div class="imageContainer">
+                <img class= "image" src="<?php echo URL_ROOT; ?>/images/calendar.jpg" alt="calendar">
+                <div class="overlay">
+                    <div class="title">
+                            Calendar
+                    </div><br>
+                    <div id="calendarTXT">
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="weapons">
+                <div class="imageContainer">
+                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/weapons.jpg" alt="weapons">
+                    <div class="overlay">
+                        <div class="title">
+                                Weapons
+                        </div><br>
+                        <div id = "weaponsTXT">
+                        </div>
+                    </div>
+                </div>  
+        </div>
+        <div class="location">
+                <div class="imageContainer">
+                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/location.jpg" alt="location">
+                    <div class="overlay">
+                        <div class="title">
+                                Location
+                        </div><br>
+                        <div id = "locationTXT">
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="summary">
+                <div class="imageContainer">
+                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/summary.png" alt="summary">
+                    <div class="overlay">
+                        <div class="title">
+                                Summary
+                        </div><br>
+                        <div id="summaryTXT">
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+        <div class="target">
+                <div class="imageContainer">
+                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/target.jpg" alt="target">
+                    <div class="overlay">
+                        <div class="title">
+                                Target
+                        </div><br>
+                        <div id="targetTXT">
+                        </div>
+                    </div>
+                </div>
+                
+        </div>
+        
+        <div class="attackdetails">
+            <div class="imageContainer">
+                <img class= "image" src="<?php echo URL_ROOT; ?>/images/details.png" alt="details">
+                <div class="overlay">
+                    <div class="title">
+                            Attack Details
+                    </div><br>
+                    <div id="detailsTXT">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body> 
+</html>
+
 <script>
-    loadAttack = async(id) => {
+   const loadAttack = async(id) => {
         try {
             var res = [];
             var query = `
@@ -38,7 +125,7 @@
                     attacktype1_txt
                     targtype1_txt
                     corp
-                    target
+                    target1
                     natlty1_txt
                     gname
                     motive
@@ -64,151 +151,35 @@
                 },
                 body: JSON.stringify({query})
             }).then (r => r.json())
-            .then (data => res = data.data.attackById)
+            .then (data => res = data.data.attackById[0])
             // .then(console.log)
-            
-            return res;
+            console.log(res);
+            document.getElementById("calendarTXT").innerHTML = `Year : ${res.iyear}<br> 
+                                                                Month : ${res.imonth} <br>
+                                                                Day: ${res.iday} <br>`;
+
+            if(res.weapdetail === "" || typeof res.weapdetail === 'undefined')
+                res.weapdetail = "N/A";
+            if(res.weapType1_txt === "" || typeof res.weapType1_txt === 'undefined')
+                res.weapType1_txt = "N/A";
+            document.getElementById("weaponsTXT").innerHTML = `${res.weapdetail+": " +res.weapType1_txt}`;
+
+            document.getElementById("locationTXT").innerHTML = `The event happened in ${res.city}, ${res.provstate} in
+                                                                ${res.region_txt}, ${res.country_txt}`;    
+            if(res.summary === "" || typeof res.summary === 'undefined')
+                res.summary = "N/A";            
+            document.getElementById("summaryTXT").innerHTML = `${res.summary}`;   
+            if(res.target1 === "" || typeof res.target1 === 'undefined')
+                res.target1 = "N/A";
+            document.getElementById("targetTXT").innerHTML = `The target was ${res.target1}`; 
+
+            document.getElementById("detailsTXT").innerHTML = `success: ${res.success}<br>
+                                                                suicide: ${res.suicide}<br>
+                                                                Target type: ${res.targtype1_txt}`; 
         } catch(err) {
             console.log(err);
         }
     }
-
     var id = <?php if(isset($_GET['id'])) echo $_GET['id']; else echo 0; ?>;
-
-    if(id != 0) { 
-        var myPromise = loadAttack(id).then(function(result) {
-            var jsondata;
-            var data = JSON.stringify(result);
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost/proiect-mvc/pages/attack_redirect", !0);
-            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-            xhr.send(data);
-            
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    // jsondata = JSON.parse(xhr.responseText);
-                    jsondata = xhr.responseText;
-                    console.log(jsondata);
-                }
-            }
-        })
-    }
+    loadAttack(id);
 </script>
-
-<?php 
-    session_start();
-    $event = "";
-        if(isset($_SESSION['attack'])) {
-            $event = $_SESSION['attack'][0];
-            //print_r($event);
-        }
-    if(empty($event)) {
-        echo "Id invalid !";
-    }
-?>
-
-
-<body>
-    <div class="grid">
-        <div class="map">
-            <img class="image" src="<?php echo URL_ROOT; ?>/images/map.png">
-        </div>
-        <div class="date">
-            <div class="imageContainer">
-                <img class= "image" src="<?php echo URL_ROOT; ?>/images/calendar.jpg" alt="calendar">
-                <div class="overlay">
-                    <div class="title">
-                            Calendar
-                    </div><br>
-                    <p class="description">
-                        Year : <?php echo $event['iyear']; ?><br> 
-                        Month : <?php echo $event['imonth']; ?> <br>
-                        Day: <?php echo $event['iday']; ?> <br>
-                    </p>
-                </div>
-            </div>
-            
-        </div>
-        <div class="weapons">
-                <div class="imageContainer">
-                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/weapons.jpg" alt="weapons">
-                    <div class="overlay">
-                        <div class="title">
-                                Weapons
-                        </div><br>
-                        <p class="description">
-                            <?php 
-                                if(empty($event['weaptype1_txt']))
-                                    echo "Necunoscut";
-                                else
-                                    echo $event['weaptype1_txt'] . " " . $event['weapdetail'];
-                            ?>
-                        </p>
-                    </div>
-                </div>  
-        </div>
-        <div class="location">
-                <div class="imageContainer">
-                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/location.jpg" alt="location">
-                    <div class="overlay">
-                        <div class="title">
-                                Location
-                        </div><br>
-                        <p class="description">
-                            The event happened in <?php echo $event['city'] . ", " . $event['provstate'] . " in " . 
-                            $event['region_txt'] . ", " . $event['country_txt']; ?>
-
-                        </p>
-                    </div>
-                </div>
-        </div>
-        <div class="summary">
-                <div class="imageContainer">
-                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/summary.png" alt="summary">
-                    <div class="overlay">
-                        <div class="title">
-                                Summary
-                        </div><br>
-                        <p class="description">
-                            <?php 
-                            if(empty($event['summary']))
-                                echo "Necunoscut";
-                            else
-                                echo $event['summary']; 
-                            ?>
-                        </p>
-                    </div>
-                </div>
-                
-            </div>
-
-        <div class="target">
-                <div class="imageContainer">
-                    <img class= "image" src="<?php echo URL_ROOT; ?>/images/target.jpg" alt="target">
-                    <div class="overlay">
-                        <div class="title">
-                                Target
-                        </div><br>
-                        <p class="description"><?php
-                            if(empty($event['target1']))  echo "Necunoscut";
-                            else echo "Tinta atacului a fost " . $event['target1'];
-                        ?></p>
-                    </div>
-                </div>
-                
-        </div>
-        
-        <div class="attackdetails">
-            <div class="imageContainer">
-                <img class= "image" src="<?php echo URL_ROOT; ?>/images/details.png" alt="details">
-                <div class="overlay">
-                    <div class="title">
-                            Attack Details
-                    </div><br>
-                    <p class="description">Detaliile atacului</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</body> 
-</html>

@@ -50,6 +50,9 @@
             ];
             $this->view('pages/advancedSearch', $data);
         }
+        public function attack_redirect() {
+            $this->view('pages/attack_redirect');
+        }
 
     }
 ?>
