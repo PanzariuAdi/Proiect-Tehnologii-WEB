@@ -20,8 +20,15 @@ const  typeDefs = gql`
         city: String!
         year: Int
     }
+    type map{
+        lat: Float!
+        longi: Float!
+        city: String!
+        country: String!
+    }
     
     extend type Query {
+        maps: [map]
         search(
             countries:[String],regions:[String],cities:[String],states:[String],motives:[String],gangs:[String],wepTypes:[String],wepSubtypes:[String],lossExtents:[String],months:[Int],years:[Int],attackTypes:[String],targetNatalities:[String],
             attackUB:Int,attackLB:Int,casualitiesUB:Int,casualitiesLB:Int,woundedUB:Int,woundedLB:Int,lossUB:Int,lossLB:Int,ransomUB:Int,ransomLB:Int,terroristLB:Int,terroristUB:Int,
@@ -61,7 +68,20 @@ const resolvers = {
     Query: {
         search: (_,args) =>{
             return getData(args);
+ 
         },
+        maps: ()=>{
+            return new Promise(function(resolve,reject){
+                var query;
+                query = "SELECT latitude as lat,longitude as longi,country_txt as country,city as city FROM terrorism"
+                console.log(query);
+                c.query(query,function(err,result,fields){
+                if (err)
+                    reject({field:"error: " + err.message,value:"code: "+err.code});
+                resolve(result);
+                })
+            });
+        }   
     },
 };
 

@@ -1,18 +1,47 @@
-d3.csv(
-	"https://raw.githubusercontent.com/plotly/datasets/master/2015_06_30_precipitation.csv",
-	function(err, rows) {
-		function unpack(rows, key) {
-			return rows.map(function(row) {
-				return row[key];
-			});
-		}
+const load= async() =>{
+	try{
+		var res = [];
+		var query = `query{
+			maps{
+			  lat
+			  longi
+			  city
+			  country
+			}
+		  }`;
+		   
+		await fetch('http://localhost:4000/', {
+			method: 'POST',
+			headers: {
+			  'Content-Type': 'application/json',
+			  'Accept': 'application/json',
+			},
+			body: JSON.stringify({
+			  query
+			})
+		  })
+			 .then(r => r.json())
+			 .then(data => res = data.data.maps);
+	}catch(err){
+		console.error(err);
+	}
+
+	var texts = [];
+	var longs = [];
+	var lats = []
+
+	res.forEach(e=>{
+		texts.push(e.city+" ,"+ e.country);
+		longs.push(e.longi);
+		lats.push(e.lat);
+	})
 
 var data = [
 	{
 		type: "scattermapbox",
-		text: unpack(rows, "Globvalue"),
-		lon: unpack(rows, "Lon"),
-		lat: unpack(rows, "Lat"),
+		text: texts,
+		lon: longs,
+		lat: lats,
 		marker: { color: "fuchsia", size: 4 }
 	}
 ];
@@ -35,5 +64,5 @@ var layout = {
 };
 
 Plotly.newPlot("myDiv", data, layout);
-	}
-);
+};
+load();
