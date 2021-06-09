@@ -10,6 +10,51 @@
     <title>Document</title>
 </head>
 
+<script>
+    loadArticle = async (id) => {
+        try {
+        var res = [];
+        var query = `
+            query {
+                articleById (id: ${id})
+            }
+        `;
+
+        await fetch('http://localhost:4000/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({query})
+            }).then (r => r.json())
+            .then (data => res = data.data.articles)
+            return res;
+
+        } catch(err) {
+            console.log(err);
+        }
+
+        var myPromise = loadArticle().then(function(result) {
+            var jsondata;
+            var data = JSON.stringify(result);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://localhost/proiect-mvc/admin/articles_redirect", !0);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+            xhr.send(data);
+        
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    jsondata = JSON.parse(xhr.responseText);
+                    console.log(jsondata);
+                }
+        }
+        })
+
+    }
+</script>
+
 <body>
     <div class="mainframe">
         <div class="header">
@@ -34,4 +79,4 @@
         </div>
     </div>
 </body> 
-</html>
+</html> 

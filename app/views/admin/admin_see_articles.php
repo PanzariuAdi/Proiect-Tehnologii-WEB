@@ -24,7 +24,7 @@
                 }`;
 
             await fetch('http://localhost:4000/', {
-                method: 'POST',
+                method: 'POST', 
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -38,6 +38,7 @@
             console.log(err);
         }
     }
+
 
     var myPromise = loadArticles().then(function(result) {
         var jsondata;
@@ -74,10 +75,6 @@
 
         <div class="main">
             <div class="adder">
-                <select name="" id="">
-                    <option value="1">See all articles</option>
-                    <option value="2">See one article on ID</option>
-                </select><br><br>
 
                 <?php if(isset($_SESSION['articles'])) {
                     $articles = $_SESSION['articles'];

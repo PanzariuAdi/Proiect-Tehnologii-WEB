@@ -25,7 +25,6 @@
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
                 <form action="<?php echo URL_ROOT; ?>/admin/add_event" method="POST">
-                    <label for="id">Id: </label><input type="text" id="id" name="id" placeholder="Example : 1"><br><br>
                     <label for="year">Year: </label><input type="text" id="year" name="year" placeholder="Example : 1970"><br><br>
                     <label for="month">Month: </label><input type="text" id="month" name="month" placeholder="Example : 5"><br><br>
                     <label for="date">Day: </label><input type="text" id="day" name="day" placeholder="Example : 10"><br><br>

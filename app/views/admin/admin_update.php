@@ -25,10 +25,10 @@
             <!-- This is for adding a row to DB -->
             <div class="adder"> 
             <form action="<?php echo URL_ROOT; ?>/admin/update_event" method="POST">
-                    <label for="id">Id: </label><input type="text" id="id" name="id" placeholder="Example : 1"><br><br>
-                    <label for="year">Year: </label><input type="text" id="year" name="year" placeholder="Example : 1970"><br><br>
-                    <label for="month">Month: </label><input type="text" id="month" name="month" placeholder="Example : 5"><br><br>
-                    <label for="date">Day: </label><input type="text" id="day" name="day" placeholder="Example : 10"><br><br>
+                    <label for="id">Id: </label><input type="number" id="id" name="id" placeholder="Example : 1"><br><br>
+                    <label for="year">Year: </label><input type="number" id="year" name="year" placeholder="Example : 1970"><br><br>
+                    <label for="month">Month: </label><input type="number" id="month" name="month" placeholder="Example : 5"><br><br>
+                    <label for="date">Day: </label><input type="number" id="day" name="day" placeholder="Example : 10"><br><br>
                     <label for="extended">Extended: </label><input type="checkbox" name="extended" id="extended"><br><br>
                     <label for="country">Country: </label><input type="text" name="country" id="country" placeholder="Example: Romania"><br><br>
                     <label for="region">Region</label><select name="region" id="region">
@@ -48,9 +48,9 @@
                     
                     <label for="state">State: </label><input type="text" name="state" id="state"><br><br>
                     <label for="city">City: </label><input type="text" name="city" id="city"><br><br>
-                    <label for="latitude">Latitude: </label><input type="text" name="latitude" id="latitude"><br><br>
-                    <label for="longitude">Longitude: </label><input type="text" name="Longitude" id="Longitude"><br><br>
-                    <label for="specificity">Specificity: </label><input type="text" name="specificity" id="specificity"><br><br>
+                    <label for="latitude">Latitude: </label><input type="number" name="latitude" id="latitude"><br><br>
+                    <label for="longitude">Longitude: </label><input type="number" name="Longitude" id="Longitude"><br><br>
+                    <label for="specificity">Specificity: </label><input type="checkbox" name="specificity" id="specificity"><br><br>
                     <label for="vicinity">Vicinity: </label><input type="checkbox" name="vicinity" id="vicinity"><br><br>
                     <label for="summary">Summary: </label><textarea name="summary" id="summary" cols="30" rows="10"></textarea><br><br>
                     <label for="multiple">Multiple: </label><input type="checkbox" name="multiple" id="multiple"><br><br>
@@ -115,10 +115,10 @@
                     </select><br><br>
                     <label for="wpsubtype">Weapon subtype: </label><input type="text" name="wpsubtype" id="wpsubtype"><br><br>
                     <label for="wpdetail">Weapon detail: </label><input type="text" name="wpdetail" id="wpdetail"><br><br>     
-                    <label for="nkill">Number of kills: </label><input type="text" name="nkill" id="nkill"><br><br>
-                    <label for="nkillus">Number of kills us: </label><input type="text" name="nkillus" id="nkillus"><br><br>
-                    <label for="nkillter">Number of killter: </label><input type="text" name="nkillter" id="nkillter"><br><br>
-                    <label for="nwounds">Number of wounds: </label><input type="text" name="nwounds" id="nwounds"><br><br>
+                    <label for="nkill">Number of kills: </label><input type="" name="nkill" id="nkill"><br><br>
+                    <label for="nkillus">Number of kills us: </label><input type="number" name="nkillus" id="nkillus"><br><br>
+                    <label for="nkillter">Number of killter: </label><input type="number" name="nkillter" id="nkillter"><br><br>
+                    <label for="nwounds">Number of wounds: </label><input type="number" name="nwounds" id="nwounds"><br><br>
                     <label for="ishostkid">Is host kid: </label><input type="checkbox" name="ishostkid" id="ishostkid"><br><br>
                     <label for="notes">Add notes: </label> <textarea name="notes" id="notes" col s="30" rows="10"></textarea><br><br>
                     <label for="propextent">Propextent: </label><select name="propextent" id="propextent">

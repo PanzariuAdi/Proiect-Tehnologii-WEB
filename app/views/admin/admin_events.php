@@ -3,68 +3,14 @@
     session_start();
     if(isset($_SESSION['attacks'])) {
         // print_r($_SESSION['attacks']);
-        $attacks = $_SESSION['attacks'];
+        $attacks = $_SESSION['attacks'];   
     }
+
+    if(!isset($_SESSION['leftLimit'])) $_SESSION['leftLimit'] = 1;
+    if(!isset($_SESSION['step'])) $_SESSION['step'] = 5;
+    if(!isset($_SESSION['rightLimit'])) $_SESSION['rightLimit'] = $_SESSION['leftLimit'] + $_SESSION['step'];
+    if(!isset($_SESSION['page'])) $_SESSION['page'] = 0;
 ?>
-
-<script>
-    loadAttacks = async () => {
-        try {   
-            var res = [];
-            var query = 
-                `query {
-                    attacks {
-                        eventid
-                        iyear
-                        imonth
-                        iday
-                        country_txt
-                        region_txt
-                        provstate
-                        city
-                        latitude
-                        longitude
-                        summary
-                        attacktype1_txt
-                        targtype1_txt
-                        target
-                        weaptype1_txt
-                    }
-                }`;
-
-            await fetch('http://localhost:4000/', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                body: JSON.stringify({query})
-            }).then (r => r.json())
-            .then (data => res = data.data.attacks)
-            
-            return res;
-        } catch(err) {
-            console.log(err);
-        }
-    }
-
-    var myPromise = loadAttacks().then(function(result) {
-        var jsondata;
-        var data = JSON.stringify(result);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "http://localhost/proiect-mvc/admin/attacks_redirect", !0);
-        xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-        xhr.send(data);
-        
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                jsondata = JSON.parse(xhr.responseText);
-                console.log(jsondata);
-            }
-        }
-    })
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo URL_ROOT ?>/css/admin_style.css">
-    <script src = "<?php echo URL_ROOT; ?>/javascript/admin.js"></script>
+    <script src = "<?php echo URL_ROOT; ?>/javascript/admin/seeArticles.js"></script>
     <title>Document</title>
 </head>
 
@@ -91,88 +37,67 @@
         <div class="main">
             <div class="adder">
 
-                <select name="allOrOne" id="selectView" onchange="showDiv('hiddenDiv', this)">
-                    <option value="1">See all events</option>
-                    <option value="2">See one event by ID</option>
-                </select><br><br>
-                
-                <div id="hiddenDiv2">
-                    <select name="order" id="orderSelect">
-                        <option value="1">Order by ID</option>
-                        <option value="2">Order by date</option>                  
-                        <option value="3">Order by location</option>
-                    </select><br><br>
-                </div>
+                    <?php 
+                        if(isset($_POST['lbtn'])) {
+                            if($_SESSION['page'] > 1)
+                                $_SESSION['page'] = $_SESSION['page'] - 1; 
+                        }
 
-                <div id="hiddenDiv" style = "display: none";>
-                    <form action="">    
-                        <input type="text" name="eventid" id="hiddenInput" placeholder="Type an id"><br><br>
-                        <input type="submit" value="Submit" onclick="showEvent(eventid)">
-                    </form>
-                </div>
+                        if(isset($_POST['rbtn'])) {
+                            $_SESSION['page'] = $_SESSION['page'] + 1;
+                        }
+                    ?>
 
-
-
-                <!-- <table class="tablemain">
-                    <tr>
-                        <th>ID</th>
-                        <th>Location</th>
-                        <th>Attack type</th>
-                    </tr>
-
-                    <tr>
-                        <td>197000000001</td>
-                        <td>Dominican Republic</td>
-                        <td>Assassination</td>
-                    </tr>
+                    <form method="POST">
+                        <button id="lbutton" name="lbtn" onclick="goLeft(<?php echo $_SESSION['page']; ?>)">Previous</button>
+                        <button id="rbutton" name="rbtn" onclick="goRight(<?php echo $_SESSION['page']; ?>)">Next</button>
+                    </form><br><br>
                     
-                    <tr>
-                        <td>197000000002</td>
-                        <td>Mexico</td>
-                        <td>Hostage taking</td>
-                    </tr>
-                </table>
 
-                <table class="tablemain">
-                    <tr>
-                        <th>ID</th>
-                        <td>197000000001</td>
-                    </tr>
+                    <table class="tablemain">
+                    Page : <?php echo $_SESSION['page']; ?>
+                        <?php foreach($attacks as $attack) : ?>
+                            <tr>
+                                <th>Id</th>
+                                <th>Y</th>
+                                <th>M</th>
+                                <th>D</th>
+                                <th>Country</th>
+                                <th>Region</th>
+                                <th>Provstate</th>
+                            </tr>
 
-                    <tr>
-                        <th>Date</th>
-                        <td>1970/07/02</td>
-                    </tr>
+                            <tr>
+                                <td><?php echo $attack['id']?> </td>
+                                <td><?php echo $attack['iyear']?> </td>
+                                <td><?php echo $attack['imonth']?> </td>
+                                <td><?php echo $attack['iday']?> </td>
+                                <td><?php echo $attack['country_txt']?> </td>
+                                <td><?php echo $attack['provstate']?> </td>
+                            </tr>
 
-                    <tr>
-                        <th>Location</th>    
-                        <td>Dominican republic</td>
-                    </tr>
+                            <tr>
+                                <th>City</th>
+                                <th>Latitude</th>
+                                <th>Longitude</th>
+                                <th>Summary</th>
+                                <th>Type</th>
+                                <th>Target</th>
+                            </tr>
 
-                    <tr>
-                        <th>Region</th>
-                        <td>Central America and Carribean</td>
-                    </tr>
+                            <tr>
+                            <td><?php echo $attack['city']?> </td>
+                            <td><?php echo $attack['latitude']?> </td>
+                            <td><?php echo $attack['longitude']?> </td>
+                            <td><?php echo $attack['summary']?> </td>
+                            <td><?php echo $attack['attacktype1_txt']?> </td>
+                            <td><?php echo $attack['target']?> </td>
+                            </tr>
 
-                    <tr>
-                        <th>Lattitude</th>
-                        <td>18.456792</td>
-                    </tr>
+                            <tr><th><th></th></th></tr>
+                        <?php endforeach; ?>
+                    </table>
 
-                    <tr>
-                        <th>Longitude</th>
-                        <td>-69.951164</td>
-                    </tr>
-
-                    <tr>
-                        <th>Summary</th>
-                        <td>Karl Armstrong, a member of the New Years Gang, broke into the University of Wisconsin's Primate 
-                            Lab and set a fire on the first floor of the building.  Armstrong intended to set fire to the Madison, 
-                            Wisconsin, United States, Selective Service Headquarters 
-                        </td>
-                    </tr>
-
-                </table> -->
             </div>
         </div>
     </div>
