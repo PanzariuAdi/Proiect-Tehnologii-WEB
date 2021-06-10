@@ -38,6 +38,10 @@ export class searchBar{
 	};
 	load= async() =>{
 		try{
+			this.content = JSON.parse(sessionStorage.getItem(this.name));
+			if(this.content ===null || typeof this.content ==='undefined')
+			{
+			console.log(1);
 			var res = [];
 			var query = `query{
 				fields(field:"`+this.field+`"){
@@ -58,6 +62,8 @@ export class searchBar{
 				 .then(r => r.json())
 				 .then(data => res = data.data.fields);
 			this.content = res;
+			sessionStorage.setItem(this.name,JSON.stringify(res));
+			}
 			this.display(this.content);
 		}catch(err){
 			console.error(err);
