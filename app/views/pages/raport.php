@@ -72,7 +72,9 @@
 
 <h2><a id="1-introduction" > </a>1. Introduction</h2>
 <h3><a id="11-purpose" ></a>1.1 Purpose</h3>
-<p>The purpose of the website is to offer information about terrorism attacks around the world. This version implements only the interface.</p>
+<p>The purpose of the website is to offer information about terrorism attacks around the world. This version implements the interface,
+advanced statistics customizable by how many filter does the user wants, maps that show on a world map the density of terrorism attack</p>
+
 <h3><a id="12-document-conventions" ></a>1.2 Document Conventions</h3>
 <p>For this project, all the pages use the same style and all the pages contain the same navigation bar located  at the top of the screen</p>
 <h3><a id="13-intended-audience-and-reading-suggestions" ></a>1.3 Intended Audience and Reading Suggestions</h3>
@@ -83,13 +85,13 @@
 <p>This software is a tool intended for worldwide terrorist data visualization. The main objective of this app is to make people aware of the worlwide terrorism. Our goal is to deliver a good quality data representations and statistics regarding the terrorist events.</p>
 <h3><a id="15-references" ></a>1.5 References</h3>
 <p>The library for representing charts is <a href="https://www.chartjs.org/"> Chart.js</a>.</p>
-<p>Map visualization <a href="https://plotly.com/javascript/"> Google Map API</a>.</p>
+<p>Map visualization <a href="https://plotly.com/javascript/"> Plotly</a>.</p>
 <p>Weapon details <a href="https://en.wikipedia.org/wiki/"> wikipedia</a>.</p>
-<p>The server uses <a href = "https://graphql.org/" target = "_blank">graphql</a>, <a href="https://www.apollographql.com/docs/apollo-server/" target = "_blank">apollo</a> and <a href="https://www.apollographql.com/docs/federation/" target = "_blank">Apollo Federation</a></p>
+<p>The server uses <a href = "https://graphql.org/" target = "_blank">graphql</a>, <a href="https://www.apollographql.com/docs/apollo-server/" target = "_blank">Apollo</a> and <a href="https://www.apollographql.com/docs/federation/" target = "_blank">Apollo Federation</a></p>
 <h2><a id="overall-description" ></a>Overall Description</h2>
 <h3><a id="21-product-perspective" ></a>2.1 Product Perspective</h3>
-<p>The website is a new, self-contained product. We have a front-end, a back-end and a data-base. In the development of the front-end we used HTML and CSS. Furthermore, we will use PHP and Javascript regarding the back-end and MySql for the data-base.</p>
-<h3><a id="22-product-functions" ></a>2.2 Product Functions</h3>
+<p>The website is a new, self-contained product.</p>
+<p>We wil</p>
 <h3><a id="22-product-functions" ></a>2.2 Product Functions</h3>
 <p>
     <ul >
