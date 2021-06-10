@@ -79,7 +79,7 @@ const  typeDefs = gql`
             attacks: () => {
                 return new Promise(function(resolve,reject){
                     // var columns = "iyear, imonth, iday, extended, country_txt, region_txt, provstate, city, latitude, longitude, specificity, vicinity, summary, multiple, success, suicide, attacktype1_txt, targtype1_txt, corp1, target1, natlty1_txt, gname, motive, claimed, weaptype1_txt, weapdetail, nkill, nkillus, nkillter, nwound, ishostkid, addnotes, propextent_txt";
-                    connection.query(`SELECT id, ` + columns + ` FROM terrorism LIMIT 1, 500`, function (err, result, attacks) {
+                    connection.query(`SELECT id, ` + columns + ` FROM terrorism`, function (err, result, attacks) {
                         if (err)
                             reject({name:"error: " + err.message});
                         resolve(result);
