@@ -35,11 +35,13 @@
                     <img class= "image" src="<?php echo URL_ROOT; ?>/images/weapons.jpg" alt="weapons">
                     <div class="overlay">
                         <div class="title">
-                                Weapons
+                        <a href="#" id="weapLink" style="text-decoration: none; color:white" target="_blank">Weapons</a>
                         </div><br>
                         <div id = "weaponsTXT">
                         </div>
+                        <a href="" id="weaponLink"></a>
                     </div>
+                    
                 </div>  
         </div>
         <div class="location">
@@ -158,11 +160,18 @@
                                                                 Month : ${res.imonth} <br>
                                                                 Day: ${res.iday} <br>`;
 
-            if(res.weapdetail === "" || typeof res.weapdetail === 'undefined')
+            
+            if(!(res.weapdetail === "" || typeof res.weapdetail === 'undefined'))    
+                document.getElementById("weapLink").href = `https://en.wikipedia.org/wiki/${res.weapdetail}`;
+
+            if(res.weapdetail === "" || typeof res.weapdetail === 'undefined') 
                 res.weapdetail = "N/A";
+
             if(res.weapType1_txt === "" || typeof res.weapType1_txt === 'undefined')
                 res.weapType1_txt = "N/A";
-            document.getElementById("weaponsTXT").innerHTML = `${res.weapdetail+": " +res.weapType1_txt}`;
+            document.getElementById("weaponsTXT").innerHTML = `${res.weapdetail+": " + res.weapType1_txt}`;
+
+            
 
             document.getElementById("locationTXT").innerHTML = `The event happened in ${res.city}, ${res.provstate} in
                                                                 ${res.region_txt}, ${res.country_txt}`;    
