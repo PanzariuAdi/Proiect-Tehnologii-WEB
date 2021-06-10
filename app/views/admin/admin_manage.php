@@ -1,4 +1,4 @@
-<?php include '../php_scripts/login_redirect.php' ?>
+<?php include '../php_scripts/login_redirect.php'; session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,19 +23,9 @@
 
         <div class="main">
             <div class="adder">
-                <form action="">
-                    <label for="selectUser">Select user: </label><select name="userselect" id="">
-                        <option value="1">User 1</option>
-                        <option value="2">User 2</option>
-                    </select><br><br>
-
-                    <label for="email">Email: </label><input type="email" name="email" placeholder="panzariu.adi00@gmail.com"><br><br>
-                    <label for="password">Password: </label><input type="text" name="password" placeholder="Hashed password" active="false"><br><br>
-                    <label for="rights">Add to database: </label><input type="checkbox" name="add_right"> <br><br>
-                    <label for="rights">Update the database: </label><input type="checkbox" name="update_right"> <br><br>
-                    <label for="rights">Delete from database: </label><input type="checkbox" name="delete_right"> <br><br>
-
-                    <input type="submit" value="Modify user">
+                <form>
+                    <label for="name">Name: </label><input type="text" name="username" placeholder="<?php echo $_SESSION['username']; ?>" disabled><br><br>
+                    <label for="password">Password: </label><input type="text" name="password" placeholder="<?php echo $_SESSION['password']; ?>" disabled> <br><br>
                 </form>
             </div>
         </div>

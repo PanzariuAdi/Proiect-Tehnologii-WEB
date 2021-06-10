@@ -109,6 +109,8 @@
                 if(empty($data['name_err']) && empty($data['password_err'])) {
                     // Validated 
                     // Check and set logged user
+                    $_SESSION['username'] = $data['name'];
+                    $_SESSION['password'] = $data['password'];
                     $loggedInUser = $this->userModel->login($data['name'], $data['password']);
 
                     if($loggedInUser) {

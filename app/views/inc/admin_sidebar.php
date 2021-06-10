@@ -13,15 +13,7 @@
     <div class="leftbox">
         <ul class="sidemenu">
             <li><a href="<?php echo URL_ROOT; ?>/admin">Admin home page</a></li>
-            <li><a href="<?php echo URL_ROOT; ?>/admin/manage">Manage access</a></li>
-        </ul>
-    </div>
-
-    <h1>Informations about data</h1>
-    <div class="leftbox">
-        <ul class="sidemenu">
-            <li><a href="countries.php">Countries ID</a></li>
-            <li><a href="targsubtype.php">Targ subtype ID</a></li>
+            <li><a href="<?php echo URL_ROOT; ?>/admin/manage">User info</a></li>
         </ul>
     </div>
 

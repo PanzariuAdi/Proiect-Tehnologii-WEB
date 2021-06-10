@@ -73,7 +73,8 @@
 <h2><a id="1-introduction" > </a>1. Introduction</h2>
 <h3><a id="11-purpose" ></a>1.1 Purpose</h3>
 <p>The purpose of the website is to offer information about terrorism attacks around the world. This version implements the interface,
-advanced statistics customizable by how many filter does the user wants, maps that show on a world map the density of terrorism attack</p>
+advanced statistics customizable by how many filter does the user wants, maps that show on a world map the density of terrorism attack and an advanced search,
+starting with a list of all events, and then the user can choose to see details about an event by clicking on "more".</p>
 
 <h3><a id="12-document-conventions" ></a>1.2 Document Conventions</h3>
 <p>For this project, all the pages use the same style and all the pages contain the same navigation bar located  at the top of the screen</p>
@@ -91,14 +92,19 @@ advanced statistics customizable by how many filter does the user wants, maps th
 <h2><a id="overall-description" ></a>Overall Description</h2>
 <h3><a id="21-product-perspective" ></a>2.1 Product Perspective</h3>
 <p>The website is a new, self-contained product.</p>
-<p>We wil</p>
+<img src="<?php echo URL_ROOT; ?>/images/c1.png" width="700" height="auto">
+<img src="<?php echo URL_ROOT; ?>/images/C2.png" width="700" height="auto">
+<img src="<?php echo URL_ROOT; ?>/images/c3-part1.png" width="700" height="auto">
+<img src="<?php echo URL_ROOT; ?>/images/c3-part2.png" width="700" height="auto">
+
 <h3><a id="22-product-functions" ></a>2.2 Product Functions</h3>
 <p>
     <ul >
-        <li>View data about terrorism</li>
-        <li>View statistics depending on decades, regions and gravity</li>
-        <li>Statistic could be exported as CSV, WebP and SVG</li>
-        <li>Add, update and delete data from database</li>
+        <li>Advanced Search: browse and view data about a specific attack</li>
+        <li>Statistics: view, create and export customizable charts</li>
+        <li>Maps: a map containing all the terrorist attacks recorded in the database</li>
+        <li>Admin: Add, update and delete data from database</li>
+        <li>User: manage user data</li>
     </ul>
 </p>
 <h3><a id="23-user-classes-and-characteristics" ></a>2.3 User Classes and Characteristics</h3>
@@ -108,11 +114,27 @@ advanced statistics customizable by how many filter does the user wants, maps th
     <li>Administrator will be able to view data, delete, modify and add new data in the database. Data consists in articles and terrorist attacks.</li>
 </ul>
 <h3><a id="24-operating-environment" ></a>2.4 Operating Environment</h3>
-<p>The app will run on any desktop, laptop, tablet and smartphone on any OS.</p>
+<p>The app will run on any desktop, laptop, tablet and smartphone on any OS that supports a browser.</p>
 <h3><a id="25-design-and-implementation-constraints" ></a>2.5 Design and Implementation Constraints</h3>
-<p>In the developement of the application we will not use frameworks and paid APIs which will result in replacing the Google Map API with d3js.</p>
+<p>In the developement of the application we will not use frameworks and will only use open source libraries.</p>
+<p>Due the database dimensions, we couldn't host it on any website. This resulted in locally hosting the database and the project overall.</p>
+<p>Filter data(e.g. all the cities in the database) are brought to the front-end and stored in the session, and then reused, to avoid waiting for long periods of time when browsing the website. This might result in heavt memory usage</p>
 <h3><a id="26-user-documentation" ></a>2.6 User Documentation</h3>
-<p>The application will be easy to use, the interface will be suggestive.</p>
+<h4>Admin module</h4>
+<p>An administrator can login if he has an account, or register. In both cases, if he will write wrong the username or the password, or at register,
+the password don't match, ther server will semnalate the problem and show him what the problem exactly is.
+After the administrator is logged in, he can add, update and delete events and articles. <br>
+For adding an event or article, the administrator needs to go in the left half of page and select "Add event" or "Add article". For adding a new event, the user can 
+write an id. In this database, the eventid, which is not unique, is constructed of year, month, day and numbers choosen by the author of the post. All the inputs that are left empty by the user will be added in
+database as a "" for String columns and 0 for numeric. The first input, which is the eventid, can be choose<br>
+For updating an event or an article, administrator must know it's ID, which can be find by going on "See events" or "See all articles". All the empty inputs will pe updated
+in the database with "" for String columns and 0 for numeric columns.
+For deleting an event or an article, the administrator needs only the id, which can be find by going on "See events" or "See all articles".
+</p>
+<h4>Statistics</h4>
+<p>The user can create different statistics by using the settings tab which can be triggered on and off using the settings button. In the settings tab, the user will be able to choose the data used for the chart by  using the filters and then create the chart by pressing the submit button.</p>
+<p>The user can select the type of chart he wants to create and the axis of the chart(e.g. xaxis:cities, yaxis:no. of attacks). Furthermore, he will be able to filter the content: selectable content(the user is able to select which values are used for the statistics, e.g. only the cities:Romania and Bulgaria), bounded countent(select an interval for the values, e.g. use only attacks that had atleast 100  wounded and at most 150 wounded), and boolean content(use the attacks that verify a criterion, e.g. only the successful attacks).</p>
+<p>Lastly, the charts can be exported by pressing the export button located at the botton of the </p>
 <h3><a id="27-assumptions-and-dependencies" ></a>2.7 Assumptions and Dependencies</h3>
 <p>There might appear some problems when two users want to modify the database at the same time. Example: A user wants to delete some data in the database and another wants to visualize the deleted data.</p>
 <h2><a id="external-interface-requirements">External Interface Requirements</a></h2>
@@ -133,10 +155,14 @@ advanced statistics customizable by how many filter does the user wants, maps th
 <h3><a id="41-Search-bar" ></a>4.1 Search-bar</h3>
 <p>
     4.1.1 The search-bar from the home page will be used by the user for finding an article using tags.<br>
-
 </p>
 <h3><a id="42-Admin-page" ></a>4.2 Admin-page</h3>
-<p> 4.2.1 The administrator can do operations on the database (Add, Update and Delete) without knowing SQL language.</p>
+<p> 4.2.1 An administrator can login if he has an account, or register. In both cases, if he will write wrong the username or the password, or at register,
+the password don't match, ther server will semnalate the problem and show him what the problem exactly is.
+After the user is logged in, 
+</p>
+
+
 <h3><a id="43-Statistics" ></a>4.3 Statistics</h3>
 <p>
     4.3.1 Statistics visualization using interactive and customizable charts.<br>
