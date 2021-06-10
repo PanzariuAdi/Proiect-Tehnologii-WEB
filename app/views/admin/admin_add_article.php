@@ -13,7 +13,7 @@
 <body>
     <div class="mainframe">
         <div class="header">
-        <img src="<?php echo URL_ROOT; ?>/images/admin.png" width="100px" height="100px">
+        <img src="<?php echo URL_ROOT; ?>/images/admin.png" width="100" height="100">
             <input class="right headerInput" type="submit" value="submit">
             <input class="right headerInput" type="search" name="mainsearch" id="mainsearch" placeholder="Search faster">
         </div>

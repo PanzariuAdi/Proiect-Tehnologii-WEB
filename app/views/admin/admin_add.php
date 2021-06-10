@@ -13,7 +13,7 @@
 <body>
     <div class="mainframe">
         <div class="header">
-        <img src="<?php echo URL_ROOT; ?>/images/admin.png" width="100px" height="100px">
+        <img src="<?php echo URL_ROOT; ?>/images/admin.png" width="100" height="100">
             <input class="right headerInput" type="submit" value="submit">
             <input class="right headerInput" type="search" name="mainsearch" id="mainsearch" placeholder="Search faster">
         </div>
@@ -119,7 +119,7 @@
                     <label for="nkillter">Number of killter: </label><input type="text" name="nkillter" id="nkillter"><br><br>
                     <label for="nwounds">Number of wounds: </label><input type="text" name="nwounds" id="nwounds"><br><br>
                     <label for="ishostkid">Is host kid: </label><input type="checkbox" name="ishostkid" id="ishostkid"><br><br>
-                    <label for="notes">Add notes: </label> <textarea name="notes" id="notes" col s="30" rows="10"></textarea><br><br>
+                    <label for="notes">Add notes: </label> <textarea name="notes" id="notes" cols="30" rows="10"></textarea><br><br>
                     <label for="propextent">Propextent: </label><select name="propextent" id="propextent">
                         <option value="1">Catastrophic (likely >= $1 billion)</option>
                         <option value="2">Major (likely >= $1 million but < $1 billion)</option>
