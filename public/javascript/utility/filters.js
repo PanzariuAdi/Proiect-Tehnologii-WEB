@@ -88,7 +88,7 @@ export class searchBar{
 		}).join('');
 		
 		htmlString = htmlString.concat(this.checkedContent.map((item)=>{
-			listeners.push(item.value.replaceAll(" ","_"));
+			listeners.push(item.replaceAll(" ","_"));
 			return `<div>
 						<input type = checkbox id = "${item.replaceAll(" ","_")}" value ="${item}" onchange='${this.name}.check("${item.replaceAll("'","&apos;")}")' checked>
 						${item}
