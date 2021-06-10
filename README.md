@@ -23,3 +23,6 @@ Realizat de :
 - [x] Statistics @Emi
 - [x] Advanced Search @Emi
 - [x] Maps page @Emi
+
+# Scurta prezentare a functionalitatilor proiectului
+https://www.youtube.com/watch?v=lMfB-y63D3s
