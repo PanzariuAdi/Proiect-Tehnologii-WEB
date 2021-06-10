@@ -85,7 +85,7 @@ function create_in(args,c   ){
            if(typeof args.attackLB !=='undefined' && typeof args.attackUB =='undefined')
                 between_queries.push("count(*) >" + c.escape(args.attackLB));
                 else
-                    if(typeof c.escape(args.attackUB) !=='undefined' && typeof c.escape(args.attackLB) =='undefined')
+                    if(typeof args.attackUB !=='undefined' && typeof args.attackLB =='undefined')
                             between_queries.push("count(*) <" + c.escape(args.attackUB));
         
         if(typeof args.casualitiesUB !=='undefined' && typeof args.casualitiesLB !=='undefined')
