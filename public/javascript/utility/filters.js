@@ -41,7 +41,6 @@ export class searchBar{
 			this.content = JSON.parse(sessionStorage.getItem(this.name));
 			if(this.content ===null || typeof this.content ==='undefined')
 			{
-			console.log(1);
 			var res = [];
 			var query = `query{
 				fields(field:"`+this.field+`"){

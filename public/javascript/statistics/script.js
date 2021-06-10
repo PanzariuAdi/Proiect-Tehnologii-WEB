@@ -102,7 +102,6 @@ const syncData = async()=>{
 				value
 			}
 		}`;
-		console.log(query);
 		await fetch('http://localhost:4000/', {
 			method: 'POST',
 			headers: {
