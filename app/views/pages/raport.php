@@ -85,7 +85,7 @@ starting with a list of all events, and then the user can choose to see details 
 <p>The library for representing charts is <a href="https://www.chartjs.org/" target = "_blank"> Chart.js</a>.</p>
 <p>Map visualization <a href="https://plotly.com/javascript/" target = "_blank"> Plotly</a>.</p>
 <p>Weapon details <a href="https://en.wikipedia.org/wiki/" target = "_blank"> wikipedia</a>.</p>
-<p>The server uses <a href = "https://graphql.org/" target = "_blank">graphql</a>, <a href="https://www.apollographql.com/docs/apollo-server/" target = "_blank">Apollo</a> and <a href="https://www.apollographql.com/docs/federation/" target = "_blank">Apollo Federation</a></p>
+<p>The server uses <a href = "https://nodejs.org/en/" target = "_blank">Node.js</a> <a href = "https://graphql.org/" target = "_blank">graphql</a>, <a href="https://www.apollographql.com/docs/apollo-server/" target = "_blank">Apollo</a> and <a href="https://www.apollographql.com/docs/federation/" target = "_blank">Apollo Federation</a></p>
 <p>Svg export <a href="https://github.com/gliffy/canvas2svg" target = "_blank"> canvas2svg</a>.</p>
 <h2><a id="overall-description" ></a>Overall Description</h2>
 <h3><a id="21-product-perspective" ></a>2.1 Product Perspective</h3>
@@ -127,6 +127,8 @@ starting with a list of all events, and then the user can choose to see details 
 <p>Due the database dimensions, we couldn't host it on any website. This resulted in locally hosting the database and the project overall.</p>
 <p>Filter data(e.g. all the cities in the database) are brought to the front-end and stored in the session, and then reused, to avoid waiting for long periods of time when browsing the website. This might result in heavt memory usage</p>
 <h3><a id="26-user-documentation" ></a>2.6 User Documentation</h3>
+<h4>Server setup</h4>
+<p>In order for the user to run the server, he will have to import the database to phpmyadmin and run the server located in the graphql_server folder using the command "npm run server".</p>
 <h4>Admin module</h4>
 <p>An administrator can login if he has an account, or register. In both cases, if he will write wrong the username or the password, or at register,
 the password don't match, ther server will semnalate the problem and show him what the problem exactly is.
