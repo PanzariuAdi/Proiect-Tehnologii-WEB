@@ -2,8 +2,12 @@ import {searchBar} from '../utility/filters.js';
 import {to_csv,to_svg,to_WebP,generateColor} from '../utility/utility.js';
 import {boundedSearch} from '../utility/boundedSearch.js';
 import {booleanSearch} from '../utility/booleanSearch.js';
-
-var searchBars = [new searchBar('country_txt','country','countries'),new searchBar('region_txt','region','regions'),new searchBar('motive','motive','motives'),new searchBar('city','city','cities'),new searchBar('provstate','state','states'),new searchBar('gname','gang','gangs'),new searchBar('attacktype1_txt','attackType','attackTypes'),new searchBar('natlty1_txt','targetNatality','targetNatalities'),new searchBar('weaptype1_txt','weaponType','wepTypes'),new searchBar('weapsubtype1_txt','weaponSubtype','wepSubtypes'),new searchBar('propextent_txt','lossExtent','lossExtents'),new searchBar('iyear','year','years'),new searchBar('imonth','month','months')];
+//new searchBar('natlty1_txt','targetNatality','targetNatalities')
+var searchBars = [new searchBar('country_txt','country','countries'),new searchBar('region_txt','region','regions'),
+new searchBar('motive','motive','motives'),new searchBar('city','city','cities'),new searchBar('provstate','state','states'),
+new searchBar('gname','gang','gangs'),new searchBar('attacktype1_txt','attackType','attackTypes'),new searchBar('weaptype1_txt','weaponType','wepTypes'),
+new searchBar('weapsubtype1_txt','weaponSubtype','wepSubtypes'),new searchBar('propextent_txt','lossExtent','lossExtents'),
+new searchBar('iyear','year','years'),new searchBar('imonth','month','months')];
 
 searchBars.forEach(e=>{e.load();});
 
